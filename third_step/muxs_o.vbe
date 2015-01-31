@@ -1,0 +1,53 @@
+-- VHDL data flow description generated from `muxs_o`
+--		date : Mon Dec 30 11:34:53 2013
+
+
+-- Entity Declaration
+
+ENTITY muxs_o IS
+  PORT (
+  alu_out : in bit_vector(3 DOWNTO 0) ;	-- alu_out
+  i : in bit_vector(2 DOWNTO 0) ;	-- i
+  noe : in BIT;	-- noe
+  oe : out BIT;	-- oe
+  ra : in bit_vector(3 DOWNTO 0) ;	-- ra
+  shift_l : out BIT;	-- shift_l
+  shift_r : out BIT;	-- shift_r
+  vdd : in BIT;	-- vdd
+  vss : in BIT;	-- vss
+  y : out mux_vector(3 DOWNTO 0) bus	-- y
+  );
+END muxs_o;
+
+
+-- Architecture Declaration
+
+ARCHITECTURE behaviour_data_flow OF muxs_o IS
+  SIGNAL aux1 : BIT;		-- aux1
+
+BEGIN
+  aux1 <= NOT((i(2) OR i(0)) OR NOT(i(1)));
+	label0 : BLOCK (NOT(noe) = '1')
+	BEGIN
+	y (0) <= GUARDED ((aux1 OR alu_out(0)) AND (NOT(aux1) OR ra(0)));
+	END BLOCK label0;
+	label1 : BLOCK (NOT(noe) = '1')
+	BEGIN
+	y (1) <= GUARDED ((NOT(aux1) OR ra(1)) AND (aux1 OR alu_out(1)));
+	END BLOCK label1;
+	label2 : BLOCK (NOT(noe) = '1')
+	BEGIN
+	y (2) <= GUARDED ((aux1 OR alu_out(2)) AND (NOT(aux1) OR ra(2)));
+	END BLOCK label2;
+	label3 : BLOCK (NOT(noe) = '1')
+	BEGIN
+	y (3) <= GUARDED ((aux1 OR alu_out(3)) AND (i(2) OR ra(3) OR i(0) 
+OR NOT(i(1))));
+	END BLOCK label3;
+
+shift_r <= (i(2) AND NOT(i(1)));
+
+shift_l <= (i(2) AND i(1));
+
+oe <= NOT(noe);
+END;

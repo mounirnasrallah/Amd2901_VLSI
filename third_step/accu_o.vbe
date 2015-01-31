@@ -1,0 +1,79 @@
+-- VHDL data flow description generated from `accu_o`
+--		date : Mon Dec 30 11:46:25 2013
+
+
+-- Entity Declaration
+
+ENTITY accu_o IS
+  PORT (
+  accu : inout bit_vector(3 DOWNTO 0) ;	-- accu
+  alu_out : in bit_vector(3 DOWNTO 0) ;	-- alu_out
+  cke : in BIT;	-- cke
+  i : in bit_vector(2 DOWNTO 0) ;	-- i
+  q0_from : in BIT;	-- q0_from
+  q0_to : out MUX_BIT BUS;	-- q0_to
+  q3_from : in BIT;	-- q3_from
+  q3_to : out MUX_BIT BUS;	-- q3_to
+  vdd : in BIT;	-- vdd
+  vss : in BIT	-- vss
+  );
+END accu_o;
+
+
+-- Architecture Declaration
+
+ARCHITECTURE behaviour_data_flow OF accu_o IS
+  SIGNAL accu_reg : REG_VECTOR(3 DOWNTO 0) REGISTER;	-- accu_reg
+  SIGNAL aux0 : BIT;		-- aux0
+  SIGNAL aux1 : BIT;		-- aux1
+  SIGNAL aux2 : BIT;		-- aux2
+  SIGNAL aux3 : BIT;		-- aux3
+  SIGNAL aux4 : BIT;		-- aux4
+
+BEGIN
+  aux4 <= (NOT(i(0)) AND NOT(i(2)));
+  aux3 <= (NOT(i(0)) AND i(2));
+  aux2 <= (NOT(i(1)) OR accu_reg(2));
+  aux1 <= (NOT(i(1)) OR accu_reg(1));
+  aux0 <= (NOT(i(1)) OR accu_reg(0));
+  label0 : BLOCK ((NOT((cke'STABLE)) AND cke) = '1')
+  BEGIN
+    accu_reg (0) <= GUARDED ((accu_reg(0) AND i(0)) OR ((NOT(i(1)) OR q0_from
+) AND (i(1) OR accu_reg(1)) AND aux3) OR (aux0 AND
+ (i(1) OR alu_out(0)) AND aux4));
+  END BLOCK label0;
+  label1 : BLOCK ((NOT((cke'STABLE)) AND cke) = '1')
+  BEGIN
+    accu_reg (1) <= GUARDED ((accu_reg(1) AND i(0)) OR (aux0 AND (i(1) OR 
+accu_reg(2)) AND aux3) OR ((i(1) OR alu_out(1)) AND aux1 AND
+ aux4));
+  END BLOCK label1;
+  label2 : BLOCK ((NOT((cke'STABLE)) AND cke) = '1')
+  BEGIN
+    accu_reg (2) <= GUARDED ((accu_reg(2) AND i(0)) OR ((i(1) OR accu_reg(3))
+ AND aux1 AND aux3) OR (aux2 AND (alu_out(2) OR 
+i(1)) AND aux4));
+  END BLOCK label2;
+  label3 : BLOCK ((NOT((cke'STABLE)) AND cke) = '1')
+  BEGIN
+    accu_reg (3) <= GUARDED ((accu_reg(3) AND i(0)) OR ((i(1) OR q3_from) AND
+ aux2 AND aux3) OR ((NOT(i(1)) OR accu_reg(3)) AND
+ (i(1) OR alu_out(3)) AND aux4));
+  END BLOCK label3;
+	label4 : BLOCK ((i(1) AND i(2)) = '1')
+	BEGIN
+	q3_to <= GUARDED accu_reg(3);
+	END BLOCK label4;
+	label5 : BLOCK ((NOT(i(1)) AND i(2)) = '1')
+	BEGIN
+	q0_to <= GUARDED accu_reg(0);
+	END BLOCK label5;
+
+accu (0) <= accu_reg(0);
+
+accu (1) <= accu_reg(1);
+
+accu (2) <= accu_reg(2);
+
+accu (3) <= accu_reg(3);
+END;

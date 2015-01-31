@@ -1,0 +1,335 @@
+*.MODEL TN NMOS LEVEL=53 MODTYPE=ELDO
+.MODEL TN NMOS LEVEL=53
+* ----------------------------------------------------------------------
+************************* SIMULATION PARAMETERS ************************
+* ----------------------------------------------------------------------
+* format    : ELDO, AccusimII, Continuum
+* model     : MOS BSIM3v3
+* process   : CS[ADFI]
+* revision : 2; 
+* extracted : CSA C61417; 2000-12; ese(5487)
+* doc#      : 9933016 REV_2
+* ----------------------------------------------------------------------
+*                        TYPICAL MEAN CONDITION
+* ----------------------------------------------------------------------
+*
++FLKLEV =0         THMLEV =0         
+*        *** Flags ***
++MOBMOD =1.000e+00 CAPMOD =2.000e+00 NQSMOD =0.000e+00 
++NOIMOD =1.000e+00 DERIV  =1         
+*        *** Threshold voltage related model parameters ***
++K1     =6.044e-01 
++K2     =2.945e-03 K3     =-1.72e+00 K3B    =6.325e-01 
++NPEAK  =2.310e+17 VTH0   =4.655e-01 
++VOFF   =-5.72e-02 DVT0   =2.227e+01 DVT1   =1.051e+00 
++DVT2   =3.393e-03 KETA   =-6.21e-04 
++PSCBE1 =2.756e+08 PSCBE2 =9.645e-06 
++DVT0W  =0.000e+00 DVT1W  =0.000e+00 DVT2W  =0.000e+00 
+*        *** Mobility related model parameters ***
++UA     =1.000e-12 UB     =1.723e-18 UC     =5.756e-11 
++U0     =4.035e+02 
+*        *** Subthreshold related parameters ***
++DSUB   =5.000e-01 ETA0   =3.085e-02 ETAB   =-3.95e-02 
++NFACTOR=1.119e-01 
+*        *** Saturation related parameters ***
++EM     =4.100e+07 PCLM   =6.831e-01 
++PDIBLC1=1.076e-01 PDIBLC2=1.453e-03 DROUT  =5.000e-01 
++A0     =2.208e+00 A1     =0.000e+00 A2     =1.000e+00 
++PVAG   =0.000e+00 VSAT   =1.178e+05 AGS    =2.490e-01 
++B0     =-1.76e-08 B1     =0.000e+00 DELTA  =1.000e-02 
++PDIBLCB=2.583e-01 
+*        *** Geometry modulation related parameters ***
++W0     =1.184e-07 DLC    =2.900e-08 
++DWC    =2.676e-08 DWB    =0.000e+00 DWG    =0.000e+00 
++LL     =0.000e+00 LW     =0.000e+00 LWL    =0.000e+00 
++LLN    =1.000e+00 LWN    =1.000e+00 WL     =0.000e+00 
++WW     =0.000e+00 WWL    =0.000e+00 WLN    =1.000e+00 
++WWN    =1.000e+00 
+*        *** Temperature effect parameters ***
++AT     =3.300e+04 UTE    =-1.80e+00 
++KT1    =-3.30e-01 KT2    =2.200e-02 KT1L   =0.000e+00 
++UA1    =0.000e+00 UB1    =0.000e+00 UC1    =0.000e+00 
++PRT    =0.000e+00 
+*        *** Overlap capacitance related and dynamic model parameters   ***
++CGDO   =1.120e-10 CGSO   =1.120e-10 CGBO   =1.100e-10 
++CGDL   =1.350e-10 CGSL   =1.350e-10 CKAPPA =6.000e-01 
++CF     =0.000e+00 ELM    =5.000e+00 
++XPART  =1.000e+00 CLC    =1.000e-15 CLE    =6.000e-01 
+*        *** Parasitic resistance and capacitance related model parameters ***
++RDSW   =6.043e+02 
++CDSC   =0.000e+00 CDSCB  =0.000e+00 CDSCD  =8.448e-05 
++PRWB   =0.000e+00 PRWG   =0.000e+00 CIT    =1.000e-03 
+*        *** Process and parameters extraction related model parameters ***
++TOX    =7.700e-09 NGATE  =0.000e+00 
++NLX    =1.918e-07 
++XL     =5.000e-08 XW     =0.000e+00 
+*        *** Substrate current related model parameters ***
++ALPHA0 =0.000e+00 BETA0  =3.000e+01 
+*        *** Noise effect related model parameters ***
++AF     =1.400e+00 KF     =2.810e-27 EF     =1.000e+00 
++NOIA   =1.000e+20 NOIB   =5.000e+04 NOIC   =-1.40e-12 
+*        *** Common extrinsic model parameters ***
++ALEV   =2         RLEV   =2         
++RD     =0.000e+00 RS     =0.000e+00 RSH    =8.200e+01 
++RDC    =0.000e+00 RSC    =0.000e+00 LD     =8.285e-09 
++WD     =2.676e-08 
++LDIF   =0.000e+00 HDIF   =6.000e-07 WMLT   =1.000e+00 
++LMLT   =1.000e+00 DEL    =0.000e+00 XJ     =3.000e-07 
++DIOLEV =4         JS     =2.000e-05 JSW    =0.000e+00 
++IS     =0.000e+00 N      =1.000e+00 
++DCAPLEV=2         CBD    =0.000e+00 CBS    =0.000e+00 
++CJ     =9.300e-04 CJSW   =2.800e-10 FC     =0.000e+00 
++MJ     =3.100e-01 MJSW   =1.900e-01 TT     =0.000e+00 
++PB     =6.900e-01 PBSW   =6.900e-01 
+* ----------------------------------------------------------------------
+* ----------------------------------------------------------------------
+.MODEL MODNM NMOS LEVEL=53 MODTYPE=ELDO
+* ----------------------------------------------------------------------
+************************* SIMULATION PARAMETERS ************************
+* ----------------------------------------------------------------------
+* format    : ELDO, AccusimII, Continuum
+* model     : MOS BSIM3v3
+* process   : CS[ADFI]
+* revision : 2; 
+* extracted : CSA C61417; 2000-12; ese(5487)
+* doc#      : 9933016 REV_2
+* ----------------------------------------------------------------------
+*                        TYPICAL MEAN CONDITION
+* ----------------------------------------------------------------------
+*
++FLKLEV =0         THMLEV =0         
+*        *** Flags ***
++MOBMOD =1.000e+00 CAPMOD =2.000e+00 NQSMOD =0.000e+00 
++NOIMOD =1.000e+00 DERIV  =1         
+*        *** Threshold voltage related model parameters ***
++K1     =9.659e-01 
++K2     =4.460e-02 K3     =-2.44e+00 K3B    =4.077e-01 
++NPEAK  =2.108e+17 VTH0   =6.593e-01 
++VOFF   =-6.38e-02 DVT0   =5.000e+01 DVT1   =1.683e+00 
++DVT2   =4.126e-02 KETA   =5.769e-03 
++PSCBE1 =4.000e+08 PSCBE2 =1.000e-06 
++DVT0W  =0.000e+00 DVT1W  =0.000e+00 DVT2W  =0.000e+00 
+*        *** Mobility related model parameters ***
++UA     =1.000e-12 UB     =6.408e-19 UC     =-7.99e-11 
++U0     =4.003e+02 
+*        *** Subthreshold related parameters ***
++DSUB   =5.000e-01 ETA0   =1.616e-03 ETAB   =-1.37e-02 
++NFACTOR=1.180e-01 
+*        *** Saturation related parameters ***
++EM     =4.100e+07 PCLM   =5.166e-01 
++PDIBLC1=1.441e-02 PDIBLC2=1.305e-03 DROUT  =5.000e-01 
++A0     =1.273e+00 A1     =0.000e+00 A2     =1.000e+00 
++PVAG   =0.000e+00 VSAT   =9.822e+04 AGS    =9.448e-02 
++B0     =-3.63e-08 B1     =0.000e+00 DELTA  =1.000e-02 
++PDIBLCB=3.872e-01 
+*        *** Geometry modulation related parameters ***
++W0     =6.289e-08 DLC    =8.000e-08 
++DWC    =4.938e-08 DWB    =0.000e+00 DWG    =0.000e+00 
++LL     =0.000e+00 LW     =0.000e+00 LWL    =0.000e+00 
++LLN    =1.000e+00 LWN    =1.000e+00 WL     =0.000e+00 
++WW     =0.000e+00 WWL    =0.000e+00 WLN    =1.000e+00 
++WWN    =1.000e+00 
+*        *** Temperature effect parameters ***
++AT     =3.300e+04 UTE    =-1.75e+00 
++KT1    =-4.50e-01 KT2    =2.200e-02 KT1L   =0.000e+00 
++UA1    =0.000e+00 UB1    =0.000e+00 UC1    =0.000e+00 
++PRT    =0.000e+00 
+*        *** Overlap capacitance related and dynamic model parameters   ***
++CGDO   =1.400e-10 CGSO   =1.400e-10 CGBO   =1.100e-10 
++CGDL   =1.700e-10 CGSL   =1.700e-10 CKAPPA =6.000e-01 
++CF     =0.000e+00 ELM    =5.000e+00 
++XPART  =1.000e+00 CLC    =1.000e-15 CLE    =6.000e-01 
+*        *** Parasitic resistance and capacitance related model parameters ***
++RDSW   =1.570e+03 
++CDSC   =1.000e-02 CDSCB  =0.000e+00 CDSCD  =8.448e-05 
++PRWB   =0.000e+00 PRWG   =0.000e+00 CIT    =8.122e-04 
+*        *** Process and parameters extraction related model parameters ***
++TOX    =1.500e-08 NGATE  =0.000e+00 
++NLX    =1.593e-07 
++XL     =0.000e+00 XW     =0.000e+00 
+*        *** Substrate current related model parameters ***
++ALPHA0 =0.000e+00 BETA0  =3.000e+01 
+*        *** Noise effect related model parameters ***
++AF     =1.400e+00 KF     =2.810e-27 EF     =1.000e+00 
++NOIA   =1.000e+20 NOIB   =5.000e+04 NOIC   =-1.40e-12 
+*        *** Common extrinsic model parameters ***
++ALEV   =2         RLEV   =2         
++RD     =0.000e+00 RS     =0.000e+00 RSH    =8.100e+01 
++RDC    =0.000e+00 RSC    =0.000e+00 LD     =8.917e-08 
++WD     =4.938e-08 
++LDIF   =0.000e+00 HDIF   =6.000e-07 WMLT   =1.000e+00 
++LMLT   =1.000e+00 DEL    =0.000e+00 XJ     =3.000e-07 
++DIOLEV =4         JS     =2.000e-05 JSW    =0.000e+00 
++IS     =0.000e+00 N      =1.000e+00 
++DCAPLEV=2         CBD    =0.000e+00 CBS    =0.000e+00 
++CJ     =9.300e-04 CJSW   =2.800e-10 FC     =0.000e+00 
++MJ     =3.100e-01 MJSW   =1.900e-01 TT     =0.000e+00 
++PB     =6.900e-01 PBSW   =6.900e-01 
+* ----------------------------------------------------------------------
+*.MODEL TP PMOS LEVEL=53 MODTYPE=ELDO
+.MODEL TP PMOS LEVEL=53
+* ----------------------------------------------------------------------
+************************* SIMULATION PARAMETERS ************************
+* ----------------------------------------------------------------------
+* format    : ELDO, AccusimII, Continuum
+* model     : MOS BSIM3v3
+* process   : CS[ADFI]
+* revision : 2; 
+* extracted : CSA C61417; 2000-12; ese(5487)
+* doc#      : 9933016 REV_2
+* ----------------------------------------------------------------------
+*                        TYPICAL MEAN CONDITION
+* ----------------------------------------------------------------------
+*
++FLKLEV =0         THMLEV =0         
+*        *** Flags ***
++MOBMOD =1.000e+00 CAPMOD =2.000e+00 NQSMOD =0.000e+00 
++NOIMOD =1.000e+00 DERIV  =1         
+*        *** Threshold voltage related model parameters ***
++K1     =6.327e-01 
++K2     =1.996e-02 K3     =7.833e+00 K3B    =-4.26e+00 
++NPEAK  =7.776e+16 VTH0   =-8.95e-01 
++VOFF   =-1.13e-01 DVT0   =3.985e-01 DVT1   =2.752e-01 
++DVT2   =-1.97e-02 KETA   =1.673e-02 
++PSCBE1 =5.000e+09 PSCBE2 =1.000e-10 
++DVT0W  =0.000e+00 DVT1W  =0.000e+00 DVT2W  =0.000e+00 
+*        *** Mobility related model parameters ***
++UA     =1.000e-12 UB     =1.465e-18 UC     =-6.55e-11 
++U0     =1.199e+02 
+*        *** Subthreshold related parameters ***
++DSUB   =5.000e-01 ETA0   =7.085e-02 ETAB   =-1.94e-02 
++NFACTOR=5.406e-01 
+*        *** Saturation related parameters ***
++EM     =4.100e+07 PCLM   =4.597e+00 
++PDIBLC1=1.000e-04 PDIBLC2=1.772e-02 DROUT  =5.000e-01 
++A0     =1.201e+00 A1     =0.000e+00 A2     =1.000e+00 
++PVAG   =0.000e+00 VSAT   =2.000e+05 AGS    =1.658e-01 
++B0     =9.747e-08 B1     =0.000e+00 DELTA  =1.000e-02 
++PDIBLCB=-1.00e-03 
+*        *** Geometry modulation related parameters ***
++W0     =2.000e-06 DLC    =3.500e-08 
++DWC    =4.990e-08 DWB    =0.000e+00 DWG    =0.000e+00 
++LL     =0.000e+00 LW     =0.000e+00 LWL    =0.000e+00 
++LLN    =1.000e+00 LWN    =1.000e+00 WL     =0.000e+00 
++WW     =0.000e+00 WWL    =0.000e+00 WLN    =1.000e+00 
++WWN    =1.000e+00 
+*        *** Temperature effect parameters ***
++AT     =3.300e+04 UTE    =-1.30e+00 
++KT1    =-6.30e-01 KT2    =2.200e-02 KT1L   =0.000e+00 
++UA1    =0.000e+00 UB1    =0.000e+00 UC1    =0.000e+00 
++PRT    =0.000e+00 
+*        *** Overlap capacitance related and dynamic model parameters   ***
++CGDO   =7.000e-11 CGSO   =7.000e-11 CGBO   =1.100e-10 
++CGDL   =8.500e-11 CGSL   =8.500e-11 CKAPPA =6.000e-01 
++CF     =0.000e+00 ELM    =5.000e+00 
++XPART  =1.000e+00 CLC    =1.000e-15 CLE    =6.000e-01 
+*        *** Parasitic resistance and capacitance related model parameters ***
++RDSW   =1.617e+03 
++CDSC   =3.660e-04 CDSCB  =2.943e-05 CDSCD  =1.970e-05 
++PRWB   =0.000e+00 PRWG   =0.000e+00 CIT    =1.816e-04 
+*        *** Process and parameters extraction related model parameters ***
++TOX    =1.500e-08 NGATE  =0.000e+00 
++NLX    =2.231e-07 
++XL     =0.000e+00 XW     =0.000e+00 
+*        *** Substrate current related model parameters ***
++ALPHA0 =0.000e+00 BETA0  =3.000e+01 
+*        *** Noise effect related model parameters ***
++AF     =1.290e+00 KF     =1.090e-27 EF     =1.000e+00 
++NOIA   =1.000e+20 NOIB   =5.000e+04 NOIC   =-1.40e-12 
+*        *** Common extrinsic model parameters ***
++ALEV   =2         RLEV   =2         
++RD     =0.000e+00 RS     =0.000e+00 RSH    =1.560e+02 
++RDC    =0.000e+00 RSC    =0.000e+00 LD     =-8.24e-08 
++WD     =4.990e-08 
++LDIF   =0.000e+00 HDIF   =6.000e-07 WMLT   =1.000e+00 
++LMLT   =1.000e+00 DEL    =0.000e+00 XJ     =3.000e-07 
++DIOLEV =4         JS     =2.000e-05 JSW    =0.000e+00 
++IS     =0.000e+00 N      =1.000e+00 
++DCAPLEV=2         CBD    =0.000e+00 CBS    =0.000e+00 
++CJ     =1.420e-03 CJSW   =3.800e-10 FC     =0.000e+00 
++MJ     =5.500e-01 MJSW   =3.900e-01 TT     =0.000e+00 
++PB     =1.020e+00 PBSW   =1.020e+00 
+* ----------------------------------------------------------------------
+.MODEL MODP PMOS LEVEL=53 MODTYPE=ELDO
+* ----------------------------------------------------------------------
+************************* SIMULATION PARAMETERS ************************
+* ----------------------------------------------------------------------
+* format    : ELDO, AccusimII, Continuum
+* model     : MOS BSIM3v3
+* process   : CS[ADFI]
+* revision : 2; 
+* extracted : CSA C61417 A64770; 2000-12; ese(5487)
+* doc#      : 9933016 REV_2
+* ----------------------------------------------------------------------
+*                        TYPICAL MEAN CONDITION
+* ----------------------------------------------------------------------
+*
++FLKLEV =0         THMLEV =0         
+*        *** Flags ***
++MOBMOD =1.000e+00 CAPMOD =2.000e+00 NQSMOD =0.000e+00 
++NOIMOD =1.000e+00 DERIV  =1         
+*        *** Threshold voltage related model parameters ***
++K1     =5.675e-01 
++K2     =-4.39e-02 K3     =4.540e+00 K3B    =-8.52e-01 
++NPEAK  =1.032e+17 VTH0   =-6.17e-01 
++VOFF   =-1.13e-01 DVT0   =1.482e+00 DVT1   =3.884e-01 
++DVT2   =-1.15e-02 KETA   =-2.56e-02 
++PSCBE1 =1.000e+09 PSCBE2 =1.000e-08 
++DVT0W  =0.000e+00 DVT1W  =0.000e+00 DVT2W  =0.000e+00 
+*        *** Mobility related model parameters ***
++UA     =2.120e-10 UB     =8.290e-19 UC     =-5.28e-11 
++U0     =1.296e+02 
+*        *** Subthreshold related parameters ***
++DSUB   =5.000e-01 ETA0   =2.293e-01 ETAB   =-3.92e-03 
++NFACTOR=8.237e-01 
+*        *** Saturation related parameters ***
++EM     =4.100e+07 PCLM   =2.979e+00 
++PDIBLC1=3.310e-02 PDIBLC2=1.000e-09 DROUT  =5.000e-01 
++A0     =1.423e+00 A1     =0.000e+00 A2     =1.000e+00 
++PVAG   =0.000e+00 VSAT   =2.000e+05 AGS    =3.482e-01 
++B0     =2.719e-07 B1     =0.000e+00 DELTA  =1.000e-02 
++PDIBLCB=-1.78e-02 
+*        *** Geometry modulation related parameters ***
++W0     =4.894e-08 DLC    =2.900e-08 
++DWC    =3.845e-08 DWB    =0.000e+00 DWG    =0.000e+00 
++LL     =0.000e+00 LW     =0.000e+00 LWL    =0.000e+00 
++LLN    =1.000e+00 LWN    =1.000e+00 WL     =0.000e+00 
++WW     =0.000e+00 WWL    =0.000e+00 WLN    =1.000e+00 
++WWN    =1.000e+00 
+*        *** Temperature effect parameters ***
++AT     =3.300e+04 UTE    =-1.35e+00 
++KT1    =-5.70e-01 KT2    =2.200e-02 KT1L   =0.000e+00 
++UA1    =0.000e+00 UB1    =0.000e+00 UC1    =0.000e+00 
++PRT    =0.000e+00 
+*        *** Overlap capacitance related and dynamic model parameters   ***
++CGDO   =7.420e-11 CGSO   =7.420e-11 CGBO   =1.100e-10 
++CGDL   =1.290e-10 CGSL   =1.290e-10 CKAPPA =6.000e-01 
++CF     =0.000e+00 ELM    =5.000e+00 
++XPART  =1.000e+00 CLC    =1.000e-15 CLE    =6.000e-01 
+*        *** Parasitic resistance and capacitance related model parameters ***
++RDSW   =1.853e+03 
++CDSC   =6.994e-04 CDSCB  =2.943e-04 CDSCD  =1.970e-04 
++PRWB   =0.000e+00 PRWG   =0.000e+00 CIT    =1.173e-04 
+*        *** Process and parameters extraction related model parameters ***
++TOX    =7.700e-09 NGATE  =0.000e+00 
++NLX    =1.770e-07 
++XL     =5.000e-08 XW     =0.000e+00 
+*        *** Substrate current related model parameters ***
++ALPHA0 =0.000e+00 BETA0  =3.000e+01 
+*        *** Noise effect related model parameters ***
++AF     =1.290e+00 KF     =1.090e-27 EF     =1.000e+00 
++NOIA   =1.000e+20 NOIB   =5.000e+04 NOIC   =-1.40e-12 
+*        *** Common extrinsic model parameters ***
++ALEV   =2         RLEV   =2         
++RD     =0.000e+00 RS     =0.000e+00 RSH    =1.560e+02 
++RDC    =0.000e+00 RSC    =0.000e+00 LD     =-5.64e-08 
++WD     =3.845e-08 
++LDIF   =0.000e+00 HDIF   =6.000e-07 WMLT   =1.000e+00 
++LMLT   =1.000e+00 DEL    =0.000e+00 XJ     =3.000e-07 
++DIOLEV =4         JS     =2.000e-05 JSW    =0.000e+00 
++IS     =0.000e+00 N      =1.000e+00 
++DCAPLEV=2         CBD    =0.000e+00 CBS    =0.000e+00 
++CJ     =1.420e-03 CJSW   =3.800e-10 FC     =0.000e+00 
++MJ     =5.500e-01 MJSW   =3.900e-01 TT     =0.000e+00 
++PB     =1.020e+00 PBSW   =1.020e+00 
+* ----------------------------------------------------------------------

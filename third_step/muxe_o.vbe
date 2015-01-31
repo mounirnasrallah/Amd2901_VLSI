@@ -1,0 +1,60 @@
+-- VHDL data flow description generated from `muxe_o`
+--		date : Mon Dec 30 11:35:21 2013
+
+
+-- Entity Declaration
+
+ENTITY muxe_o IS
+  PORT (
+  accu : in bit_vector(3 DOWNTO 0) ;	-- accu
+  d : in bit_vector(3 DOWNTO 0) ;	-- d
+  i : in bit_vector(2 DOWNTO 0) ;	-- i
+  r : out bit_vector(3 DOWNTO 0) ;	-- r
+  ra : in bit_vector(3 DOWNTO 0) ;	-- ra
+  rb : in bit_vector(3 DOWNTO 0) ;	-- rb
+  s : out bit_vector(3 DOWNTO 0) ;	-- s
+  vdd : in BIT;	-- vdd
+  vss : in BIT	-- vss
+  );
+END muxe_o;
+
+
+-- Architecture Declaration
+
+ARCHITECTURE behaviour_data_flow OF muxe_o IS
+  SIGNAL aux0 : BIT;		-- aux0
+  SIGNAL aux1 : BIT;		-- aux1
+  SIGNAL aux2 : BIT;		-- aux2
+  SIGNAL aux3 : BIT;		-- aux3
+  SIGNAL aux4 : BIT;		-- aux4
+  SIGNAL aux5 : BIT;		-- aux5
+
+BEGIN
+  aux5 <= (NOT(i(1)) AND NOT(i(2)));
+  aux4 <= (aux3 AND i(2));
+  aux3 <= (i(0) OR i(1));
+  aux2 <= (ra(3) AND NOT(i(1)));
+  aux1 <= (NOT(i(0)) AND aux0);
+  aux0 <= NOT(NOT(i(1)) AND i(2));
+
+s (0) <= (((i(0) OR accu(0)) AND NOT(i(2)) AND rb(0)) OR (
+NOT(i(0)) AND (aux0 OR ra(0)) AND accu(0)) OR (NOT(
+aux0) AND ra(0)));
+
+s (1) <= ((NOT(aux0) AND ra(1)) OR (aux1 AND accu(1)) OR (
+i(0) AND rb(1) AND NOT(i(2))));
+
+s (2) <= (((i(0) OR accu(2)) AND NOT(i(2)) AND rb(2)) OR (
+NOT(aux0) AND ra(2)) OR (aux1 AND accu(2)));
+
+s (3) <= ((aux1 AND accu(3)) OR (aux2 AND i(2)) OR (rb(3) 
+AND i(0) AND NOT(i(2))));
+
+r (0) <= ((aux5 AND ra(0)) OR (aux4 AND d(0)));
+
+r (1) <= ((aux5 AND ra(1)) OR (aux3 AND d(1) AND i(2)));
+
+r (2) <= ((aux5 AND ra(2)) OR (aux4 AND d(2)));
+
+r (3) <= ((aux4 AND d(3)) OR (aux2 AND NOT(i(2))));
+END;

@@ -1,0 +1,760 @@
+  o  Locating configuration directory:
+     - </soc/coriolis2/etc/coriolis2>
+       o  Running configuration hook: coriolisConfigure().
+          - Loading "/soc/coriolis2/etc/coriolis2/alliance.conf".
+          - Loading "/soc/coriolis2/etc/coriolis2/patterns.conf".
+          - Loading "/soc/coriolis2/etc/coriolis2/display.conf".
+          - Loading "/soc/coriolis2/etc/coriolis2/misc.conf".
+          - Loading "/soc/coriolis2/etc/coriolis2/hMetis.conf".
+          - Loading "/soc/coriolis2/etc/coriolis2/nimbus.conf".
+          - Loading "/soc/coriolis2/etc/coriolis2/mauka.conf".
+          - Loading "/soc/coriolis2/etc/coriolis2/kite.conf".
+          - Loading "/soc/coriolis2/etc/coriolis2/stratus1.conf".
+  o  Reading Configuration. 
+     - </soc/coriolis2/lib/python2.6/site-packages/crlcore/coriolisInit.py>.
+  o  Placing <coeur>.
+     + ./coeur.vst
+        + ./muxs.vst
+           + /soc/alliance/cells/sxlib/o3_x2.vbe
+           + /soc/alliance/cells/sxlib/o3_x2.ap
+           + /soc/alliance/cells/sxlib/no2_x1.vbe
+           + /soc/alliance/cells/sxlib/no2_x1.ap
+           + /soc/alliance/cells/sxlib/a2_x2.vbe
+           + /soc/alliance/cells/sxlib/a2_x2.ap
+           + /soc/alliance/cells/sxlib/buf_x2.vbe
+           + /soc/alliance/cells/sxlib/buf_x2.ap
+           + /soc/alliance/cells/sxlib/nao2o22_x1.vbe
+           + /soc/alliance/cells/sxlib/nao2o22_x1.ap
+           + /soc/alliance/cells/sxlib/na4_x1.vbe
+           + /soc/alliance/cells/sxlib/na4_x1.ap
+           + /soc/alliance/cells/sxlib/inv_x2.vbe
+           + /soc/alliance/cells/sxlib/inv_x2.ap
+           + /soc/alliance/cells/sxlib/nao22_x1.vbe
+           + /soc/alliance/cells/sxlib/nao22_x1.ap
+           + /soc/alliance/cells/sxlib/nts_x1.vbe
+           + /soc/alliance/cells/sxlib/nts_x1.ap
+        + ./muxs.vst
+        + ./alu.vst
+           + /soc/alliance/cells/sxlib/a4_x2.vbe
+           + /soc/alliance/cells/sxlib/a4_x2.ap
+           + /soc/alliance/cells/sxlib/o4_x2.vbe
+           + /soc/alliance/cells/sxlib/o4_x2.ap
+           + /soc/alliance/cells/sxlib/ao2o22_x2.vbe
+           + /soc/alliance/cells/sxlib/ao2o22_x2.ap
+           + /soc/alliance/cells/sxlib/ao22_x2.vbe
+           + /soc/alliance/cells/sxlib/ao22_x2.ap
+           + /soc/alliance/cells/sxlib/noa3ao322_x1.vbe
+           + /soc/alliance/cells/sxlib/noa3ao322_x1.ap
+           + /soc/alliance/cells/sxlib/a3_x2.vbe
+           + /soc/alliance/cells/sxlib/a3_x2.ap
+           + /soc/alliance/cells/sxlib/on12_x1.vbe
+           + /soc/alliance/cells/sxlib/on12_x1.ap
+           + /soc/alliance/cells/sxlib/oa3ao322_x2.vbe
+           + /soc/alliance/cells/sxlib/oa3ao322_x2.ap
+           + /soc/alliance/cells/sxlib/noa22_x1.vbe
+           + /soc/alliance/cells/sxlib/noa22_x1.ap
+           + /soc/alliance/cells/sxlib/oa2a2a23_x2.vbe
+           + /soc/alliance/cells/sxlib/oa2a2a23_x2.ap
+           + /soc/alliance/cells/sxlib/nxr2_x1.vbe
+           + /soc/alliance/cells/sxlib/nxr2_x1.ap
+           + /soc/alliance/cells/sxlib/oa2a22_x2.vbe
+           + /soc/alliance/cells/sxlib/oa2a22_x2.ap
+           + /soc/alliance/cells/sxlib/xr2_x1.vbe
+           + /soc/alliance/cells/sxlib/xr2_x1.ap
+           + /soc/alliance/cells/sxlib/mx2_x2.vbe
+           + /soc/alliance/cells/sxlib/mx2_x2.ap
+           + /soc/alliance/cells/sxlib/mx3_x2.vbe
+           + /soc/alliance/cells/sxlib/mx3_x2.ap
+           + /soc/alliance/cells/sxlib/oa22_x2.vbe
+           + /soc/alliance/cells/sxlib/oa22_x2.ap
+           + /soc/alliance/cells/sxlib/an12_x1.vbe
+           + /soc/alliance/cells/sxlib/an12_x1.ap
+           + /soc/alliance/cells/sxlib/no3_x1.vbe
+           + /soc/alliance/cells/sxlib/no3_x1.ap
+           + /soc/alliance/cells/sxlib/no4_x1.vbe
+           + /soc/alliance/cells/sxlib/no4_x1.ap
+           + /soc/alliance/cells/sxlib/o2_x2.vbe
+           + /soc/alliance/cells/sxlib/o2_x2.ap
+           + /soc/alliance/cells/sxlib/na3_x1.vbe
+           + /soc/alliance/cells/sxlib/na3_x1.ap
+           + /soc/alliance/cells/sxlib/na2_x1.vbe
+           + /soc/alliance/cells/sxlib/na2_x1.ap
+           + /soc/alliance/cells/sxlib/oa2a2a2a24_x2.vbe
+           + /soc/alliance/cells/sxlib/oa2a2a2a24_x2.ap
+           + /soc/alliance/cells/sxlib/oa2ao222_x2.vbe
+           + /soc/alliance/cells/sxlib/oa2ao222_x2.ap
+        + ./alu.vst
+        + ./accu.vst
+           + /soc/alliance/cells/sxlib/sff1_x4.vbe
+           + /soc/alliance/cells/sxlib/sff1_x4.ap
+           + /soc/alliance/cells/sxlib/ts_x8.vbe
+           + /soc/alliance/cells/sxlib/ts_x8.ap
+        + ./accu.vst
+        + ./ram.vst
+           + /soc/alliance/cells/sxlib/noa2a22_x1.vbe
+           + /soc/alliance/cells/sxlib/noa2a22_x1.ap
+           + /soc/alliance/cells/sxlib/noa2ao222_x1.vbe
+           + /soc/alliance/cells/sxlib/noa2ao222_x1.ap
+           + /soc/alliance/cells/sxlib/noa2a2a23_x1.vbe
+           + /soc/alliance/cells/sxlib/noa2a2a23_x1.ap
+           + /soc/alliance/cells/sxlib/noa2a2a2a24_x1.vbe
+           + /soc/alliance/cells/sxlib/noa2a2a2a24_x1.ap
+        + ./ram.vst
+        + ./muxe.vst
+     + ./coeur.vst
+  o  Placing <chip>.
+     + ./amd2901.vst
+        + /soc/alliance/cells/pxlib/pck_px.vbe
+        + /soc/alliance/cells/pxlib/pck_px.ap
+           + /soc/alliance/cells/pxlib/padreal.ap
+        + /soc/alliance/cells/pxlib/pi_px.vbe
+        + /soc/alliance/cells/pxlib/pi_px.ap
+        + /soc/alliance/cells/pxlib/po_px.vbe
+        + /soc/alliance/cells/pxlib/po_px.ap
+        + /soc/alliance/cells/pxlib/pvddick_px.vbe
+        + /soc/alliance/cells/pxlib/pvddick_px.ap
+        + /soc/alliance/cells/pxlib/pot_px.vbe
+        + /soc/alliance/cells/pxlib/pot_px.ap
+        + /soc/alliance/cells/pxlib/piot_px.vbe
+        + /soc/alliance/cells/pxlib/piot_px.ap
+        + /soc/alliance/cells/pxlib/pvssick_px.vbe
+        + /soc/alliance/cells/pxlib/pvssick_px.ap
+        + /soc/alliance/cells/pxlib/pvddeck_px.vbe
+        + /soc/alliance/cells/pxlib/pvddeck_px.ap
+        + /soc/alliance/cells/pxlib/pvsseck_px.vbe
+        + /soc/alliance/cells/pxlib/pvsseck_px.ap
+     + ./amd2901.vst
+  o  Pads on west side:
+     - Placing pad: <p_cin> (model:<pi_px>).
+     - Placing pad: <p_r0> (model:<piot_px>).
+     - Placing pad: <p_q0> (model:<piot_px>).
+     - Placing pad: <p_a0> (model:<pi_px>).
+     - Placing pad: <p_a1> (model:<pi_px>).
+     - Placing pad: <p_a2> (model:<pi_px>).
+     - Placing pad: <p_a3> (model:<pi_px>).
+     - Placing pad: <p_b0> (model:<pi_px>).
+     - Placing pad: <p_b1> (model:<pi_px>).
+     - Placing pad: <p_b2> (model:<pi_px>).
+     - Placing pad: <p_b3> (model:<pi_px>).
+  o  Pads on east side:
+     - Placing pad: <p_cout> (model:<po_px>).
+     - Placing pad: <p_r3> (model:<piot_px>).
+     - Placing pad: <p_q3> (model:<piot_px>).
+     - Placing pad: <p_ng> (model:<po_px>).
+     - Placing pad: <p_np> (model:<po_px>).
+     - Placing pad: <p_vddick0> (model:<pvddick_px>).
+     - Placing pad: <p_ovr> (model:<po_px>).
+     - Placing pad: <p_zero> (model:<po_px>).
+     - Placing pad: <p_noe> (model:<pi_px>).
+     - Placing pad: <p_ck> (model:<pck_px>).
+     - Placing pad: <p_f3> (model:<po_px>).
+  o  Pads on north side:
+     - Placing pad: <p_i0> (model:<pi_px>).
+     - Placing pad: <p_i1> (model:<pi_px>).
+     - Placing pad: <p_i2> (model:<pi_px>).
+     - Placing pad: <p_i3> (model:<pi_px>).
+     - Placing pad: <p_i4> (model:<pi_px>).
+     - Placing pad: <p_vddeck0> (model:<pvddeck_px>).
+     - Placing pad: <p_vddeck1> (model:<pvddeck_px>).
+     - Placing pad: <p_i5> (model:<pi_px>).
+     - Placing pad: <p_i6> (model:<pi_px>).
+     - Placing pad: <p_i7> (model:<pi_px>).
+     - Placing pad: <p_i8> (model:<pi_px>).
+  o  Pads on south side:
+     - Placing pad: <p_d0> (model:<pi_px>).
+     - Placing pad: <p_d1> (model:<pi_px>).
+     - Placing pad: <p_d2> (model:<pi_px>).
+     - Placing pad: <p_d3> (model:<pi_px>).
+     - Placing pad: <p_vsseck0> (model:<pvsseck_px>).
+     - Placing pad: <p_vsseck1> (model:<pvsseck_px>).
+     - Placing pad: <p_vssick0> (model:<pvssick_px>).
+     - Placing pad: <p_y0> (model:<pot_px>).
+     - Placing pad: <p_y1> (model:<pot_px>).
+     - Placing pad: <p_y2> (model:<pot_px>).
+     - Placing pad: <p_y3> (model:<pot_px>).
+  o  Creating ToolEngine<Nimbus> for Cell <coeur>
+     - Design abutment box found: <Box 0l 0l 1450l 1450l>
+  o  Creating ToolEngine<Mauka> for Cell <coeur>
+     + /soc/alliance/cells/sxlib/tie_x0.vbe
+     + /soc/alliance/cells/sxlib/tie_x0.ap
+     + /soc/alliance/cells/sxlib/rowend_x0.vbe
+     + /soc/alliance/cells/sxlib/rowend_x0.ap
+     - Slice height deduced from: <&<id:443 Cell nao2o22_x1>>.
+       <Box 0l 0l 1450l 1450l>
+  o  Beginning global placement
+     - Number of nodes to place ............................................ 986
+     - Margin ............................................................ 28.6%
+     - Initial RowCost ................................................... 42050
+     - Initial BinCost ................................................. 16498.2
+     - Initial NetCost .................................................. 964705
+     - Initial Cost .......................................................... 1
+     - Total bins capa .................................................. 30035l
+     - Total bins size .................................................. 30035l
+     - Total subrows capa ............................................... 72085l
+  o  Computing initial Temperature ... done
+     - Loop:0001 NIns:986 Temperature:0.429405 Cost:1.24791
+                 RowCost:42050 BinCost:8283.43 NetCost:1.25712e+06
+                 Success Ratio:99.9645% Dist:1 Delta:0.5
+     - Loop:0002 NIns:986 Temperature:0.214703 Cost:1.2428
+                 RowCost:42050 BinCost:7877.73 NetCost:1.25297e+06
+                 Success Ratio:99.9437% Dist:1 Delta:0.5
+     - Loop:0003 NIns:986 Temperature:0.107351 Cost:1.23713
+                 RowCost:42050 BinCost:8004.87 NetCost:1.24648e+06
+                 Success Ratio:99.8589% Dist:1 Delta:0.5
+     - Loop:0004 NIns:986 Temperature:0.0536757 Cost:1.22758
+                 RowCost:42050 BinCost:7454.9 NetCost:1.23802e+06
+                 Success Ratio:99.7386% Dist:1 Delta:0.5
+     - Loop:0005 NIns:986 Temperature:0.0268378 Cost:1.23566
+                 RowCost:42050 BinCost:7833.49 NetCost:1.24546e+06
+                 Success Ratio:99.487% Dist:1 Delta:0.5
+     - Loop:0006 NIns:986 Temperature:0.0134189 Cost:1.24394
+                 RowCost:42050 BinCost:7479.18 NetCost:1.25548e+06
+                 Success Ratio:98.9594% Dist:1 Delta:0.5
+     - Loop:0007 NIns:986 Temperature:0.00670946 Cost:1.20922
+                 RowCost:42050 BinCost:7890.61 NetCost:1.21692e+06
+                 Success Ratio:97.7819% Dist:1 Delta:0.5
+     - Loop:0008 NIns:986 Temperature:0.00456422 Cost:1.24576
+                 RowCost:42050 BinCost:7812.03 NetCost:1.25636e+06
+                 Success Ratio:95.7487% Dist:1 Delta:0.680266
+     - Loop:0009 NIns:986 Temperature:0.00344228 Cost:1.2109
+                 RowCost:42050 BinCost:8156.32 NetCost:1.21787e+06
+                 Success Ratio:93.7815% Dist:1 Delta:0.75419
+     - Loop:0010 NIns:986 Temperature:0.00287382 Cost:1.206
+                 RowCost:42050 BinCost:7976.3 NetCost:1.2132e+06
+                 Success Ratio:91.6336% Dist:1 Delta:0.834858
+     - Loop:0011 NIns:986 Temperature:0.00243412 Cost:1.20492
+                 RowCost:42050 BinCost:7679.21 NetCost:1.21301e+06
+                 Success Ratio:89.9021% Dist:1 Delta:0.847
+     - Loop:0012 NIns:986 Temperature:0.00212444 Cost:1.18081
+                 RowCost:42050 BinCost:7954.91 NetCost:1.18626e+06
+                 Success Ratio:88.3034% Dist:1 Delta:0.872775
+     - Loop:0013 NIns:986 Temperature:0.00188765 Cost:1.16407
+                 RowCost:42050 BinCost:7821.98 NetCost:1.16876e+06
+                 Success Ratio:86.2987% Dist:1 Delta:0.888539
+     - Loop:0014 NIns:986 Temperature:0.00169803 Cost:1.17476
+                 RowCost:42050 BinCost:7736.33 NetCost:1.1805e+06
+                 Success Ratio:84.8654% Dist:1 Delta:0.899544
+     - Loop:0015 NIns:986 Temperature:0.00153824 Cost:1.15914
+                 RowCost:42050 BinCost:7244.9 NetCost:1.16535e+06
+                 Success Ratio:83.3604% Dist:1 Delta:0.9059
+     - Loop:0016 NIns:986 Temperature:0.00141929 Cost:1.15142
+                 RowCost:42050 BinCost:7364.88 NetCost:1.15668e+06
+                 Success Ratio:81.5761% Dist:1 Delta:0.922669
+     - Loop:0017 NIns:986 Temperature:0.00131618 Cost:1.13173
+                 RowCost:42050 BinCost:7940.61 NetCost:1.1337e+06
+                 Success Ratio:79.9009% Dist:1 Delta:0.927355
+     - Loop:0018 NIns:986 Temperature:0.00121782 Cost:1.15317
+                 RowCost:42050 BinCost:7962.03 NetCost:1.15662e+06
+                 Success Ratio:78.4759% Dist:1 Delta:0.925266
+     - Loop:0019 NIns:986 Temperature:0.00113861 Cost:1.10805
+                 RowCost:42050 BinCost:7462.06 NetCost:1.10988e+06
+                 Success Ratio:76.4872% Dist:1 Delta:0.934959
+     - Loop:0020 NIns:986 Temperature:0.00106928 Cost:1.12308
+                 RowCost:42050 BinCost:7593.48 NetCost:1.12556e+06
+                 Success Ratio:75.4265% Dist:1 Delta:0.939112
+     - Loop:0021 NIns:986 Temperature:0.00100579 Cost:1.11276
+                 RowCost:42050 BinCost:7703.47 NetCost:1.11414e+06
+                 Success Ratio:73.6727% Dist:1 Delta:0.940619
+     - Loop:0022 NIns:986 Temperature:0.000951535 Cost:1.11048
+                 RowCost:42050 BinCost:7852.03 NetCost:1.11121e+06
+                 Success Ratio:72.2609% Dist:1 Delta:0.946059
+     - Loop:0023 NIns:986 Temperature:0.000894428 Cost:1.09717
+                 RowCost:42050 BinCost:7403.49 NetCost:1.09841e+06
+                 Success Ratio:70.7372% Dist:1 Delta:0.939984
+     - Loop:0024 NIns:986 Temperature:0.000849698 Cost:1.07054
+                 RowCost:42050 BinCost:7830.6 NetCost:1.06848e+06
+                 Success Ratio:68.9258% Dist:1 Delta:0.949991
+     - Loop:0025 NIns:986 Temperature:0.000812299 Cost:1.06654
+                 RowCost:42050 BinCost:7320.65 NetCost:1.06584e+06
+                 Success Ratio:67.6836% Dist:1 Delta:0.955985
+     - Loop:0026 NIns:986 Temperature:0.00077572 Cost:1.06224
+                 RowCost:42050 BinCost:7853.47 NetCost:1.0595e+06
+                 Success Ratio:66.1398% Dist:1 Delta:0.954969
+     - Loop:0027 NIns:986 Temperature:0.000737159 Cost:1.05117
+                 RowCost:42050 BinCost:7142.08 NetCost:1.04994e+06
+                 Success Ratio:64.4917% Dist:1 Delta:0.950291
+     - Loop:0028 NIns:986 Temperature:0.000708253 Cost:1.04934
+                 RowCost:42050 BinCost:8054.88 NetCost:1.04502e+06
+                 Success Ratio:62.9311% Dist:1 Delta:0.960786
+     - Loop:0029 NIns:986 Temperature:0.000680305 Cost:1.01207
+                 RowCost:42050 BinCost:7339.23 NetCost:1.0074e+06
+                 Success Ratio:61.3539% Dist:1 Delta:0.96054
+     - Loop:0030 NIns:986 Temperature:0.000653173 Cost:1.02703
+                 RowCost:42050 BinCost:7600.62 NetCost:1.02258e+06
+                 Success Ratio:60.1% Dist:1 Delta:0.960118
+     - Loop:0031 NIns:986 Temperature:0.000630279 Cost:1.00919
+                 RowCost:42050 BinCost:7459.18 NetCost:1.00392e+06
+                 Success Ratio:58.773% Dist:1 Delta:0.964949
+     - Loop:0032 NIns:986 Temperature:0.000604444 Cost:1.01103
+                 RowCost:42050 BinCost:8089.15 NetCost:1.00384e+06
+                 Success Ratio:57.1854% Dist:1 Delta:0.95901
+     - Loop:0033 NIns:986 Temperature:0.000580332 Cost:0.99251
+                 RowCost:42050 BinCost:7477.73 NetCost:985980
+                 Success Ratio:55.9474% Dist:1 Delta:0.960109
+     - Loop:0034 NIns:986 Temperature:0.000560824 Cost:0.997272
+                 RowCost:42050 BinCost:7520.62 NetCost:990945
+                 Success Ratio:54.2145% Dist:1 Delta:0.966384
+     - Loop:0035 NIns:986 Temperature:0.00054376 Cost:0.981613
+                 RowCost:42050 BinCost:7280.61 NetCost:974940
+                 Success Ratio:52.9862% Dist:1 Delta:0.969574
+     - Loop:0036 NIns:986 Temperature:0.000526958 Cost:0.988713
+                 RowCost:42050 BinCost:7836.33 NetCost:980745
+                 Success Ratio:51.8546% Dist:1 Delta:0.9691
+     - Loop:0037 NIns:986 Temperature:0.000513991 Cost:0.935964
+                 RowCost:42050 BinCost:7446.31 NetCost:925470
+                 Success Ratio:50.2572% Dist:1 Delta:0.975393
+     - Loop:0038 NIns:986 Temperature:0.000503301 Cost:0.936622
+                 RowCost:42050 BinCost:7562 NetCost:925800
+                 Success Ratio:48.9886% Dist:1 Delta:0.979201
+     - Loop:0039 NIns:986 Temperature:0.000491166 Cost:0.94086
+                 RowCost:42050 BinCost:7672.04 NetCost:929985
+                 Success Ratio:48.0224% Dist:1 Delta:0.975891
+     - Loop:0040 NIns:986 Temperature:0.000477334 Cost:0.916909
+                 RowCost:42050 BinCost:7404.89 NetCost:905180
+                 Success Ratio:46.897% Dist:1 Delta:0.971838
+     - Loop:0041 NIns:986 Temperature:0.000467251 Cost:0.926687
+                 RowCost:42050 BinCost:7222.03 NetCost:916255
+                 Success Ratio:46.0664% Dist:1 Delta:0.978876
+     - Loop:0042 NIns:986 Temperature:0.0004547 Cost:0.894927
+                 RowCost:42050 BinCost:7810.61 NetCost:880300
+                 Success Ratio:44.5809% Dist:1 Delta:0.973139
+     - Loop:0043 NIns:986 Temperature:0.00044585 Cost:0.866117
+                 RowCost:42050 BinCost:7299.17 NetCost:851080
+                 Success Ratio:42.6075% Dist:0.986075 Delta:0.980537
+     - Loop:0044 NIns:986 Temperature:0.000434979 Cost:0.872339
+                 RowCost:42050 BinCost:7023.46 NetCost:858645
+                 Success Ratio:41.4668% Dist:0.961096 Delta:0.975617
+     - Loop:0045 NIns:986 Temperature:0.000426946 Cost:0.867556
+                 RowCost:42050 BinCost:7350.63 NetCost:852455
+                 Success Ratio:41.6726% Dist:0.938727 Delta:0.981531
+     - Loop:0046 NIns:986 Temperature:0.000418223 Cost:0.840679
+                 RowCost:42050 BinCost:7247.75 NetCost:823980
+                 Success Ratio:40.477% Dist:0.905656 Delta:0.97957
+     - Loop:0047 NIns:986 Temperature:0.000411603 Cost:0.846283
+                 RowCost:42050 BinCost:7083.51 NetCost:830520
+                 Success Ratio:41.2875% Dist:0.88109 Delta:0.984171
+     - Loop:0048 NIns:986 Temperature:0.000403887 Cost:0.852601
+                 RowCost:42050 BinCost:7527.73 NetCost:835850
+                 Success Ratio:41.4835% Dist:0.858917 Delta:0.981254
+     - Loop:0049 NIns:986 Temperature:0.000393632 Cost:0.830049
+                 RowCost:42050 BinCost:7563.47 NetCost:811560
+                 Success Ratio:41.8957% Dist:0.840843 Delta:0.974609
+     - Loop:0050 NIns:986 Temperature:0.000386025 Cost:0.804279
+                 RowCost:42050 BinCost:7434.87 NetCost:784355
+                 Success Ratio:40.0418% Dist:0.807561 Delta:0.980676
+     - Loop:0051 NIns:986 Temperature:0.000378946 Cost:0.80006
+                 RowCost:42050 BinCost:7227.78 NetCost:780505
+                 Success Ratio:40.1183% Dist:0.776214 Delta:0.981661
+     - Loop:0052 NIns:986 Temperature:0.000371711 Cost:0.798442
+                 RowCost:42050 BinCost:6884.93 NetCost:779885
+                 Success Ratio:41.4925% Dist:0.756751 Delta:0.980909
+     - Loop:0053 NIns:986 Temperature:0.00036342 Cost:0.75642
+                 RowCost:42050 BinCost:7316.3 NetCost:733440
+                 Success Ratio:41.0087% Dist:0.734114 Delta:0.977694
+     - Loop:0054 NIns:986 Temperature:0.000354728 Cost:0.778148
+                 RowCost:42050 BinCost:7216.37 NetCost:757055
+                 Success Ratio:40.7675% Dist:0.710384 Delta:0.976083
+     - Loop:0055 NIns:986 Temperature:0.000347116 Cost:0.788283
+                 RowCost:42050 BinCost:7022.09 NetCost:768550
+                 Success Ratio:41.8415% Dist:0.695051 Delta:0.978541
+     - Loop:0056 NIns:986 Temperature:0.000340034 Cost:0.725402
+                 RowCost:42050 BinCost:7309.22 NetCost:700215
+                 Success Ratio:41.291% Dist:0.676222 Delta:0.979597
+     - Loop:0057 NIns:986 Temperature:0.000332757 Cost:0.759842
+                 RowCost:42050 BinCost:7280.56 NetCost:737225
+                 Success Ratio:40.6549% Dist:0.653601 Delta:0.978599
+     - Loop:0058 NIns:986 Temperature:0.000325983 Cost:0.705967
+                 RowCost:42050 BinCost:6979.21 NetCost:680455
+                 Success Ratio:42.3746% Dist:0.642978 Delta:0.979644
+     - Loop:0059 NIns:986 Temperature:0.000320938 Cost:0.729521
+                 RowCost:42050 BinCost:6947.79 NetCost:705805
+                 Success Ratio:41.8185% Dist:0.628952 Delta:0.984522
+     - Loop:0060 NIns:986 Temperature:0.000314034 Cost:0.711731
+                 RowCost:42050 BinCost:7243.49 NetCost:685775
+                 Success Ratio:41.7365% Dist:0.614716 Delta:0.97849
+     - Loop:0061 NIns:986 Temperature:0.000307784 Cost:0.700987
+                 RowCost:42050 BinCost:7107.78 NetCost:674700
+                 Success Ratio:40.7446% Dist:0.594704 Delta:0.980096
+     - Loop:0062 NIns:986 Temperature:0.00030044 Cost:0.698444
+                 RowCost:42050 BinCost:7114.94 NetCost:671950
+                 Success Ratio:40.3421% Dist:0.572951 Delta:0.976139
+     - Loop:0063 NIns:986 Temperature:0.000292821 Cost:0.688833
+                 RowCost:42050 BinCost:6604.95 NetCost:663305
+                 Success Ratio:42.2078% Dist:0.562682 Delta:0.97464
+     - Loop:0064 NIns:986 Temperature:0.000286914 Cost:0.675902
+                 RowCost:42050 BinCost:7142.03 NetCost:647700
+                 Success Ratio:41.3021% Dist:0.547502 Delta:0.97983
+     - Loop:0065 NIns:986 Temperature:0.000281402 Cost:0.679881
+                 RowCost:42050 BinCost:6766.39 NetCost:653185
+                 Success Ratio:40.397% Dist:0.527775 Delta:0.980788
+     - Loop:0066 NIns:986 Temperature:0.000274967 Cost:0.666649
+                 RowCost:42050 BinCost:6459.22 NetCost:640000
+                 Success Ratio:40.3713% Dist:0.508624 Delta:0.977133
+     - Loop:0067 NIns:986 Temperature:0.00026718 Cost:0.649068
+                 RowCost:42050 BinCost:6837.78 NetCost:619925
+                 Success Ratio:42.5018% Dist:0.501004 Delta:0.97168
+     - Loop:0068 NIns:986 Temperature:0.000261363 Cost:0.655027
+                 RowCost:42050 BinCost:6947.8 NetCost:625955
+                 Success Ratio:41.4668% Dist:0.488313 Delta:0.978227
+     - Loop:0069 NIns:986 Temperature:0.000256569 Cost:0.633539
+                 RowCost:42050 BinCost:6979.24 NetCost:602820
+                 Success Ratio:40.4742% Dist:0.471096 Delta:0.981658
+     - Loop:0070 NIns:986 Temperature:0.000251374 Cost:0.628977
+                 RowCost:42050 BinCost:6679.2 NetCost:598905
+                 Success Ratio:41.1797% Dist:0.45781 Delta:0.979752
+     - Loop:0071 NIns:986 Temperature:0.000246931 Cost:0.610499
+                 RowCost:42050 BinCost:7240.6 NetCost:577275
+                 Success Ratio:40.8482% Dist:0.44338 Delta:0.982328
+     - Loop:0072 NIns:986 Temperature:0.000242921 Cost:0.623172
+                 RowCost:42050 BinCost:7106.33 NetCost:591295
+                 Success Ratio:42.905% Dist:0.438525 Delta:0.983757
+     - Loop:0073 NIns:986 Temperature:0.000237473 Cost:0.625008
+                 RowCost:42050 BinCost:6757.81 NetCost:594395
+                 Success Ratio:42.7583% Dist:0.43308 Delta:0.977576
+     - Loop:0074 NIns:986 Temperature:0.000232546 Cost:0.619386
+                 RowCost:42050 BinCost:7099.21 NetCost:587260
+                 Success Ratio:42.0618% Dist:0.424687 Delta:0.979252
+     - Loop:0075 NIns:986 Temperature:0.000228228 Cost:0.597896
+                 RowCost:42050 BinCost:6704.94 NetCost:565505
+                 Success Ratio:41.635% Dist:0.414643 Delta:0.981429
+     - Loop:0076 NIns:986 Temperature:0.000223391 Cost:0.605884
+                 RowCost:42050 BinCost:6874.96 NetCost:573515
+                 Success Ratio:41.1339% Dist:0.402759 Delta:0.97881
+     - Loop:0077 NIns:986 Temperature:0.000217693 Cost:0.584591
+                 RowCost:42050 BinCost:6926.34 NetCost:550525
+                 Success Ratio:41.0866% Dist:0.391025 Delta:0.974492
+     - Loop:0078 NIns:986 Temperature:0.000213602 Cost:0.586038
+                 RowCost:42050 BinCost:6404.92 NetCost:553770
+                 Success Ratio:40.3338% Dist:0.376689 Delta:0.981207
+     - Loop:0079 NIns:986 Temperature:0.000208668 Cost:0.574321
+                 RowCost:42050 BinCost:6522.12 NetCost:540830
+                 Success Ratio:43.4291% Dist:0.374539 Delta:0.976903
+     - Loop:0080 NIns:986 Temperature:0.000204769 Cost:0.578622
+                 RowCost:42050 BinCost:6643.47 NetCost:545045
+                 Success Ratio:43.3812% Dist:0.372221 Delta:0.981311
+     - Loop:0081 NIns:986 Temperature:0.000200501 Cost:0.561539
+                 RowCost:42050 BinCost:7004.93 NetCost:525560
+                 Success Ratio:42.2036% Dist:0.365534 Delta:0.979161
+     - Loop:0082 NIns:986 Temperature:0.000196774 Cost:0.568896
+                 RowCost:42050 BinCost:6564.92 NetCost:534875
+                 Success Ratio:41.2305% Dist:0.355411 Delta:0.981409
+     - Loop:0083 NIns:986 Temperature:0.000192815 Cost:0.552827
+                 RowCost:42050 BinCost:6757.78 NetCost:517025
+                 Success Ratio:40.7821% Dist:0.343974 Delta:0.979884
+     - Loop:0084 NIns:986 Temperature:0.00018977 Cost:0.543804
+                 RowCost:42050 BinCost:6587.79 NetCost:507905
+                 Success Ratio:40.2539% Dist:0.331088 Delta:0.984206
+     - Loop:0085 NIns:986 Temperature:0.000185584 Cost:0.540704
+                 RowCost:42050 BinCost:6299.24 NetCost:505520
+                 Success Ratio:40.1002% Dist:0.318177 Delta:0.977942
+     - Loop:0086 NIns:986 Temperature:0.000182867 Cost:0.534941
+                 RowCost:42050 BinCost:6430.65 NetCost:498915
+                 Success Ratio:39.6185% Dist:0.304236 Delta:0.98536
+     - Loop:0087 NIns:986 Temperature:0.000179454 Cost:0.543421
+                 RowCost:42050 BinCost:6886.29 NetCost:506525
+                 Success Ratio:43.427% Dist:0.302493 Delta:0.981331
+     - Loop:0088 NIns:986 Temperature:0.000175719 Cost:0.531716
+                 RowCost:42050 BinCost:6059.24 NetCost:496665
+                 Success Ratio:41.813% Dist:0.295877 Delta:0.979189
+     - Loop:0089 NIns:986 Temperature:0.000171675 Cost:0.526305
+                 RowCost:42050 BinCost:6716.37 NetCost:488730
+                 Success Ratio:41.5885% Dist:0.288742 Delta:0.976985
+     - Loop:0090 NIns:986 Temperature:0.000167269 Cost:0.528849
+                 RowCost:42050 BinCost:6489.22 NetCost:492195
+                 Success Ratio:40.5263% Dist:0.278712 Delta:0.974339
+     - Loop:0091 NIns:986 Temperature:0.000163244 Cost:0.512327
+                 RowCost:42050 BinCost:6526.35 NetCost:474365
+                 Success Ratio:40.1565% Dist:0.268 Delta:0.975937
+     - Loop:0092 NIns:986 Temperature:0.000159587 Cost:0.518873
+                 RowCost:42050 BinCost:6303.52 NetCost:482105
+                 Success Ratio:39.4378% Dist:0.255773 Delta:0.977599
+     - Loop:0093 NIns:986 Temperature:0.000156844 Cost:0.501868
+                 RowCost:42050 BinCost:6135.01 NetCost:464425
+                 Success Ratio:39.0492% Dist:0.24311 Delta:0.982811
+     - Loop:0094 NIns:986 Temperature:0.000153667 Cost:0.495862
+                 RowCost:42050 BinCost:6164.9 NetCost:457890
+                 Success Ratio:39.2849% Dist:0.231647 Delta:0.979742
+     - Loop:0095 NIns:986 Temperature:0.000150911 Cost:0.491365
+                 RowCost:42050 BinCost:6484.94 NetCost:452030
+                 Success Ratio:42.7639% Dist:0.228784 Delta:0.982066
+     - Loop:0096 NIns:986 Temperature:0.000147739 Cost:0.501355
+                 RowCost:42050 BinCost:6270.66 NetCost:463435
+                 Success Ratio:42.0778% Dist:0.224386 Delta:0.978985
+     - Loop:0097 NIns:986 Temperature:0.000145296 Cost:0.47898
+                 RowCost:42050 BinCost:6167.81 NetCost:439785
+                 Success Ratio:41.4376% Dist:0.218637 Delta:0.983464
+     - Loop:0098 NIns:986 Temperature:0.000141567 Cost:0.48454
+                 RowCost:42050 BinCost:6506.35 NetCost:444645
+                 Success Ratio:41.1346% Dist:0.212372 Delta:0.974336
+     - Loop:0099 NIns:986 Temperature:0.000138162 Cost:0.477833
+                 RowCost:42050 BinCost:6084.95 NetCost:438825
+                 Success Ratio:40.5625% Dist:0.205072 Delta:0.975943
+     - Loop:0100 NIns:986 Temperature:0.000135386 Cost:0.473017
+                 RowCost:42050 BinCost:6412.11 NetCost:432600
+                 Success Ratio:40.1969% Dist:0.197272 Delta:0.979908
+     - Loop:0101 NIns:986 Temperature:0.000131997 Cost:0.474195
+                 RowCost:42050 BinCost:6382.11 NetCost:433960
+                 Success Ratio:39.8931% Dist:0.189171 Delta:0.974966
+     - Loop:0102 NIns:986 Temperature:0.000129237 Cost:0.462705
+                 RowCost:42050 BinCost:5849.25 NetCost:423375
+                 Success Ratio:39.3912% Dist:0.180452 Delta:0.979091
+     - Loop:0103 NIns:986 Temperature:0.000126195 Cost:0.454428
+                 RowCost:42050 BinCost:5756.35 NetCost:414805
+                 Success Ratio:39.3544% Dist:0.172069 Delta:0.976467
+     - Loop:0104 NIns:986 Temperature:0.00012319 Cost:0.456237
+                 RowCost:42050 BinCost:6139.18 NetCost:415500
+                 Success Ratio:43.7662% Dist:0.171667 Delta:0.976184
+     - Loop:0105 NIns:986 Temperature:0.000120302 Cost:0.452827
+                 RowCost:42050 BinCost:5762.11 NetCost:413070
+                 Success Ratio:42.969% Dist:0.169897 Delta:0.976553
+     - Loop:0106 NIns:986 Temperature:0.000117335 Cost:0.453058
+                 RowCost:42050 BinCost:6053.56 NetCost:412370
+                 Success Ratio:42.49% Dist:0.167331 Delta:0.975339
+     - Loop:0107 NIns:986 Temperature:0.000114186 Cost:0.450833
+                 RowCost:42050 BinCost:6350.7 NetCost:409020
+                 Success Ratio:41.9492% Dist:0.1639 Delta:0.973168
+     - Loop:0108 NIns:986 Temperature:0.000112203 Cost:0.435218
+                 RowCost:42050 BinCost:6636.35 NetCost:391355
+                 Success Ratio:41.2771% Dist:0.159437 Delta:0.982633
+     - Loop:0109 NIns:986 Temperature:0.000109762 Cost:0.435769
+                 RowCost:42050 BinCost:5977.8 NetCost:394085
+                 Success Ratio:41.3313% Dist:0.155182 Delta:0.978244
+     - Loop:0110 NIns:986 Temperature:0.000107575 Cost:0.43754
+                 RowCost:42050 BinCost:5924.99 NetCost:396155
+                 Success Ratio:40.7759% Dist:0.150179 Delta:0.980074
+     - Loop:0111 NIns:986 Temperature:0.000105586 Cost:0.43182
+                 RowCost:42050 BinCost:6127.78 NetCost:389365
+                 Success Ratio:41.0143% Dist:0.145695 Delta:0.98151
+     - Loop:0112 NIns:986 Temperature:0.000102825 Cost:0.426905
+                 RowCost:42050 BinCost:5406.42 NetCost:386440
+                 Success Ratio:40.354% Dist:0.140383 Delta:0.973854
+     - Loop:0113 NIns:986 Temperature:0.000100767 Cost:0.419376
+                 RowCost:42050 BinCost:5569.25 NetCost:377840
+                 Success Ratio:40.6619% Dist:0.135697 Delta:0.97998
+     - Loop:0114 NIns:986 Temperature:9.84345e-05 Cost:0.420774
+                 RowCost:42050 BinCost:6050.63 NetCost:377775
+                 Success Ratio:40.7335% Dist:0.131264 Delta:0.976854
+     - Loop:0115 NIns:986 Temperature:9.62851e-05 Cost:0.422617
+                 RowCost:42050 BinCost:5870.68 NetCost:380335
+                 Success Ratio:40.4429% Dist:0.126595 Delta:0.978165
+     - Loop:0116 NIns:986 Temperature:9.43264e-05 Cost:0.418638
+                 RowCost:42050 BinCost:5909.26 NetCost:375945
+                 Success Ratio:40.8718% Dist:0.122635 Delta:0.979657
+     - Loop:0117 NIns:986 Temperature:9.23342e-05 Cost:0.416579
+                 RowCost:42050 BinCost:5757.83 NetCost:374230
+                 Success Ratio:39.9251% Dist:0.117638 Delta:0.978879
+     - Loop:0118 NIns:986 Temperature:9.01615e-05 Cost:0.406052
+                 RowCost:42050 BinCost:6032.08 NetCost:362055
+                 Success Ratio:39.6324% Dist:0.1125 Delta:0.976469
+     - Loop:0119 NIns:986 Temperature:8.84187e-05 Cost:0.402331
+                 RowCost:42050 BinCost:5749.22 NetCost:358985
+                 Success Ratio:38.8567% Dist:0.106713 Delta:0.980671
+     - Loop:0120 NIns:986 Temperature:8.63536e-05 Cost:0.408735
+                 RowCost:42050 BinCost:5753.55 NetCost:365835
+                 Success Ratio:38.14% Dist:0.10046 Delta:0.976643
+     - Loop:0121 NIns:986 Temperature:8.45257e-05 Cost:0.398842
+                 RowCost:42050 BinCost:5510.7 NetCost:356020
+                 Success Ratio:40.8162% Dist:0.1 Delta:0.978833
+     - Loop:0122 NIns:986 Temperature:8.27835e-05 Cost:0.403969
+                 RowCost:42050 BinCost:5509.24 NetCost:361520
+                 Success Ratio:40.2434% Dist:0.1 Delta:0.979388
+     - Loop:0123 NIns:986 Temperature:8.12284e-05 Cost:0.397051
+                 RowCost:42050 BinCost:5646.37 NetCost:353660
+                 Success Ratio:39.7263% Dist:0.1 Delta:0.981215
+     - Loop:0124 NIns:986 Temperature:7.9201e-05 Cost:0.393338
+                 RowCost:42050 BinCost:5309.26 NetCost:350775
+                 Success Ratio:39.0388% Dist:0.1 Delta:0.975041
+     - Loop:0125 NIns:986 Temperature:7.77412e-05 Cost:0.391157
+                 RowCost:42050 BinCost:5660.67 NetCost:347295
+                 Success Ratio:37.9169% Dist:0.1 Delta:0.981568
+     - Loop:0126 NIns:986 Temperature:7.58925e-05 Cost:0.392466
+                 RowCost:42050 BinCost:5684.94 NetCost:348620
+                 Success Ratio:37.374% Dist:0.1 Delta:0.97622
+     - Loop:0127 NIns:986 Temperature:7.42532e-05 Cost:0.387812
+                 RowCost:42050 BinCost:5740.67 NetCost:343450
+                 Success Ratio:36.5635% Dist:0.1 Delta:0.9784
+     - Loop:0128 NIns:986 Temperature:7.2892e-05 Cost:0.386809
+                 RowCost:42050 BinCost:5423.56 NetCost:343405
+                 Success Ratio:35.8302% Dist:0.1 Delta:0.981667
+     - Loop:0129 NIns:986 Temperature:7.13123e-05 Cost:0.381114
+                 RowCost:42050 BinCost:5280.66 NetCost:337765
+                 Success Ratio:35.1622% Dist:0.1 Delta:0.978329
+     - Loop:0130 NIns:986 Temperature:7.01092e-05 Cost:0.379028
+                 RowCost:42050 BinCost:5246.39 NetCost:335640
+                 Success Ratio:33.9596% Dist:0.1 Delta:0.983129
+     - Loop:0131 NIns:986 Temperature:6.87481e-05 Cost:0.375781
+                 RowCost:42050 BinCost:5027.83 NetCost:332870
+                 Success Ratio:33.9165% Dist:0.1 Delta:0.980586
+     - Loop:0132 NIns:986 Temperature:6.69062e-05 Cost:0.375938
+                 RowCost:42050 BinCost:5017.86 NetCost:333070
+                 Success Ratio:33.3208% Dist:0.1 Delta:0.973207
+     - Loop:0133 NIns:986 Temperature:6.54369e-05 Cost:0.378395
+                 RowCost:42050 BinCost:5380.68 NetCost:334525
+                 Success Ratio:32.4485% Dist:0.1 Delta:0.978039
+     - Loop:0134 NIns:986 Temperature:6.40296e-05 Cost:0.372146
+                 RowCost:42050 BinCost:5052.09 NetCost:328895
+                 Success Ratio:31.7075% Dist:0.1 Delta:0.978494
+     - Loop:0135 NIns:986 Temperature:6.28085e-05 Cost:0.36943
+                 RowCost:42050 BinCost:4562.12 NetCost:327575
+                 Success Ratio:31.1458% Dist:0.1 Delta:0.980929
+     - Loop:0136 NIns:986 Temperature:6.12637e-05 Cost:0.367994
+                 RowCost:42050 BinCost:5174.96 NetCost:324045
+                 Success Ratio:30.3812% Dist:0.1 Delta:0.975405
+     - Loop:0137 NIns:986 Temperature:6.02e-05 Cost:0.367692
+                 RowCost:42050 BinCost:4952.11 NetCost:324445
+                 Success Ratio:29.9753% Dist:0.1 Delta:0.982638
+     - Loop:0138 NIns:986 Temperature:5.89801e-05 Cost:0.362885
+                 RowCost:42050 BinCost:4980.67 NetCost:319200
+                 Success Ratio:29.2558% Dist:0.1 Delta:0.979735
+     - Loop:0139 NIns:986 Temperature:5.75552e-05 Cost:0.357758
+                 RowCost:42050 BinCost:4884.97 NetCost:314015
+                 Success Ratio:28.0943% Dist:0.1 Delta:0.975841
+     - Loop:0140 NIns:986 Temperature:5.64911e-05 Cost:0.362003
+                 RowCost:42050 BinCost:4606.41 NetCost:319470
+                 Success Ratio:27.7127% Dist:0.1 Delta:0.981512
+     - Loop:0141 NIns:986 Temperature:5.54938e-05 Cost:0.360299
+                 RowCost:42050 BinCost:4829.25 NetCost:316920
+                 Success Ratio:27.3283% Dist:0.1 Delta:0.982345
+     - Loop:0142 NIns:986 Temperature:5.45034e-05 Cost:0.358039
+                 RowCost:42050 BinCost:4977.83 NetCost:314015
+                 Success Ratio:26.5609% Dist:0.1 Delta:0.982153
+     - Loop:0143 NIns:986 Temperature:5.32429e-05 Cost:0.356709
+                 RowCost:42050 BinCost:4583.56 NetCost:313870
+                 Success Ratio:26.1382% Dist:0.1 Delta:0.976874
+     - Loop:0144 NIns:986 Temperature:5.21951e-05 Cost:0.356464
+                 RowCost:42050 BinCost:4852.12 NetCost:312735
+                 Success Ratio:25.1978% Dist:0.1 Delta:0.980319
+     - Loop:0145 NIns:986 Temperature:5.11936e-05 Cost:0.350664
+                 RowCost:42050 BinCost:4782.12 NetCost:306745
+                 Success Ratio:24.6723% Dist:0.1 Delta:0.980813
+     - Loop:0146 NIns:986 Temperature:4.9991e-05 Cost:0.351297
+                 RowCost:42050 BinCost:4587.81 NetCost:308055
+                 Success Ratio:24.1794% Dist:0.1 Delta:0.976509
+     - Loop:0147 NIns:986 Temperature:4.91503e-05 Cost:0.347736
+                 RowCost:42050 BinCost:4517.83 NetCost:304465
+                 Success Ratio:23.6046% Dist:0.1 Delta:0.983183
+     - Loop:0148 NIns:986 Temperature:4.78749e-05 Cost:0.346754
+                 RowCost:42050 BinCost:4466.46 NetCost:303580
+                 Success Ratio:22.7656% Dist:0.1 Delta:0.974051
+     - Loop:0149 NIns:986 Temperature:4.6841e-05 Cost:0.346153
+                 RowCost:42050 BinCost:4722.11 NetCost:302105
+                 Success Ratio:21.9266% Dist:0.1 Delta:0.978405
+     - Loop:0150 NIns:986 Temperature:4.60857e-05 Cost:0.342908
+                 RowCost:42050 BinCost:4456.4 NetCost:299490
+                 Success Ratio:22.0287% Dist:0.1 Delta:0.983875
+     - Loop:0151 NIns:986 Temperature:4.50127e-05 Cost:0.344614
+                 RowCost:42050 BinCost:4703.57 NetCost:300515
+                 Success Ratio:21.4205% Dist:0.1 Delta:0.976716
+     - Loop:0152 NIns:986 Temperature:4.43528e-05 Cost:0.339306
+                 RowCost:42050 BinCost:4062.12 NetCost:296910
+                 Success Ratio:20.6893% Dist:0.1 Delta:0.98534
+     - Loop:0153 NIns:986 Temperature:4.32754e-05 Cost:0.341547
+                 RowCost:42050 BinCost:4572.17 NetCost:297655
+                 Success Ratio:20.0734% Dist:0.1 Delta:0.975708
+     - Loop:0154 NIns:986 Temperature:4.211e-05 Cost:0.34395
+                 RowCost:42050 BinCost:4607.82 NetCost:300115
+                 Success Ratio:19.9163% Dist:0.1 Delta:0.973071
+     - Loop:0155 NIns:986 Temperature:4.11042e-05 Cost:0.33785
+                 RowCost:42050 BinCost:4247.86 NetCost:294745
+                 Success Ratio:19.0655% Dist:0.1 Delta:0.976115
+     - Loop:0156 NIns:986 Temperature:4.01416e-05 Cost:0.336527
+                 RowCost:42050 BinCost:4534.97 NetCost:292395
+                 Success Ratio:18.6575% Dist:0.1 Delta:0.976582
+     - Loop:0157 NIns:986 Temperature:3.94151e-05 Cost:0.335795
+                 RowCost:42050 BinCost:4434.98 NetCost:291935
+                 Success Ratio:18.1021% Dist:0.1 Delta:0.9819
+     - Loop:0158 NIns:986 Temperature:3.85479e-05 Cost:0.336761
+                 RowCost:42050 BinCost:4296.43 NetCost:293420
+                 Success Ratio:17.3145% Dist:0.1 Delta:0.977999
+     - Loop:0159 NIns:986 Temperature:3.7577e-05 Cost:0.335048
+                 RowCost:42050 BinCost:4437.82 NetCost:291125
+                 Success Ratio:16.7904% Dist:0.1 Delta:0.974813
+     - Loop:0160 NIns:986 Temperature:3.66823e-05 Cost:0.333727
+                 RowCost:42050 BinCost:4283.53 NetCost:290210
+                 Success Ratio:16.1481% Dist:0.1 Delta:0.97619
+     - Loop:0161 NIns:986 Temperature:3.56719e-05 Cost:0.330797
+                 RowCost:42050 BinCost:4363.53 NetCost:286810
+                 Success Ratio:15.7693% Dist:0.1 Delta:0.972457
+     - Loop:0162 NIns:986 Temperature:3.49534e-05 Cost:0.331199
+                 RowCost:42050 BinCost:4123.56 NetCost:288020
+                 Success Ratio:14.9838% Dist:0.1 Delta:0.979858
+     - Loop:0163 NIns:986 Temperature:3.41093e-05 Cost:0.330353
+                 RowCost:42050 BinCost:4489.27 NetCost:285925
+                 Success Ratio:14.4611% Dist:0.1 Delta:0.975849
+     - Loop:0164 NIns:986 Temperature:3.33581e-05 Cost:0.329668
+                 RowCost:42050 BinCost:4286.44 NetCost:285850
+                 Success Ratio:13.8438% Dist:0.1 Delta:0.977979
+     - Loop:0165 NIns:986 Temperature:3.26957e-05 Cost:0.325915
+                 RowCost:42050 BinCost:4060.71 NetCost:282560
+                 Success Ratio:13.2613% Dist:0.1 Delta:0.980143
+     - Loop:0166 NIns:986 Temperature:3.2148e-05 Cost:0.32714
+                 RowCost:42050 BinCost:4265 NetCost:283210
+                 Success Ratio:12.7525% Dist:0.1 Delta:0.983247
+     - Loop:0167 NIns:986 Temperature:3.1324e-05 Cost:0.326418
+                 RowCost:42050 BinCost:4179.26 NetCost:282715
+                 Success Ratio:12.5683% Dist:0.1 Delta:0.97437
+     - Loop:0168 NIns:986 Temperature:3.04517e-05 Cost:0.324806
+                 RowCost:42050 BinCost:4036.46 NetCost:281450
+                 Success Ratio:11.8794% Dist:0.1 Delta:0.972152
+     - Loop:0169 NIns:986 Temperature:2.96131e-05 Cost:0.325444
+                 RowCost:42050 BinCost:4017.86 NetCost:282195
+                 Success Ratio:11.5381% Dist:0.1 Delta:0.972461
+     - Loop:0170 NIns:986 Temperature:2.89093e-05 Cost:0.322419
+                 RowCost:42050 BinCost:3989.26 NetCost:279045
+                 Success Ratio:10.9737% Dist:0.1 Delta:0.976233
+     - Loop:0171 NIns:986 Temperature:2.79983e-05 Cost:0.321724
+                 RowCost:42050 BinCost:3827.84 NetCost:278825
+                 Success Ratio:10.1368% Dist:0.1 Delta:0.968486
+     - Loop:0172 NIns:986 Temperature:2.70279e-05 Cost:0.322668
+                 RowCost:42050 BinCost:4080.74 NetCost:279015
+                 Success Ratio:10.0124% Dist:0.1 Delta:0.965343
+     - Loop:0173 NIns:986 Temperature:2.64832e-05 Cost:0.318901
+                 RowCost:42050 BinCost:4033.56 NetCost:275130
+                 Success Ratio:9.21578% Dist:0.1 Delta:0.979846
+     - Loop:0174 NIns:986 Temperature:2.53954e-05 Cost:0.31901
+                 RowCost:42050 BinCost:3904.96 NetCost:275665
+                 Success Ratio:8.74588% Dist:0.1 Delta:0.958924
+     - Loop:0175 NIns:986 Temperature:2.46669e-05 Cost:0.317682
+                 RowCost:42050 BinCost:3959.27 NetCost:274065
+                 Success Ratio:8.374% Dist:0.1 Delta:0.971313
+     - Loop:0176 NIns:986 Temperature:2.37697e-05 Cost:0.317095
+                 RowCost:42050 BinCost:4075 NetCost:273060
+                 Success Ratio:7.95346% Dist:0.1 Delta:0.963629
+     - Loop:0177 NIns:986 Temperature:2.30717e-05 Cost:0.317802
+                 RowCost:42050 BinCost:3964.99 NetCost:274175
+                 Success Ratio:7.34523% Dist:0.1 Delta:0.970634
+     - Loop:0178 NIns:986 Temperature:2.24757e-05 Cost:0.315906
+                 RowCost:42050 BinCost:3975.02 NetCost:272110
+                 Success Ratio:7.05954% Dist:0.1 Delta:0.974169
+     - Loop:0179 NIns:986 Temperature:2.17912e-05 Cost:0.316976
+                 RowCost:42050 BinCost:4065 NetCost:272965
+                 Success Ratio:6.67654% Dist:0.1 Delta:0.969546
+     - Loop:0180 NIns:986 Temperature:2.126e-05 Cost:0.315963
+                 RowCost:42050 BinCost:3949.27 NetCost:272255
+                 Success Ratio:6.69878% Dist:0.1 Delta:0.975621
+     - Loop:0181 NIns:986 Temperature:2.05208e-05 Cost:0.315412
+                 RowCost:42050 BinCost:3873.6 NetCost:271910
+                 Success Ratio:5.88203% Dist:0.1 Delta:0.965231
+     - Loop:0182 NIns:986 Temperature:1.97431e-05 Cost:0.313995
+                 RowCost:42050 BinCost:3790.74 NetCost:270660
+                 Success Ratio:5.59286% Dist:0.1 Delta:0.962104
+     - Loop:0183 NIns:986 Temperature:1.89736e-05 Cost:0.315261
+                 RowCost:42050 BinCost:3800.77 NetCost:271985
+                 Success Ratio:5.19804% Dist:0.1 Delta:0.961022
+     - Loop:0184 NIns:986 Temperature:1.84332e-05 Cost:0.313581
+                 RowCost:42050 BinCost:3782.14 NetCost:270245
+                 Success Ratio:4.66836% Dist:0.1 Delta:0.971518
+     - Loop:0185 NIns:986 Temperature:1.76716e-05 Cost:0.313569
+                 RowCost:42050 BinCost:3873.57 NetCost:269935
+                 Success Ratio:4.37364% Dist:0.1 Delta:0.958684
+     - Total impossible movements .......................................... 215
+     - Suroccupied target ............................................... 1e+04%
+     - Source equal target .................................................. 0%
+     - Impossible exchange .................................................. 0%
+  o  Global Placement finished
+     - Gain for RowCost ..................................................... 0%
+     - Gain for BinCost .............................................. 7.65e+03%
+     - Gain for NetCost ............................................... 7.2e+03%
+     - NetCost Estimated ................................................ 269935
+  o  Simulated annealing took 1m 34.6086s [+0 bytes].
+     (raw measurements : 94.6086s [+0Ko/6396Ko])

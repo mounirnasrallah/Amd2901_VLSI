@@ -1,0 +1,1643 @@
+entity amd2901 is
+   port (
+      a    :  in bit_vector(3 downto 0);
+      b    :  in bit_vector(3 downto 0);
+      cin  :  in bit;
+      clk  :  in bit;
+      cout :  out bit;
+      d    :  in bit_vector(3 downto 0);
+      f3   :  out bit;
+      i    :  in bit_vector(8 downto 0);
+      ng   :  out bit;
+      noe  :  in bit;
+      np   :  out bit;
+      ovr  :  out bit;
+      q0   :  inout bit;
+      q3   :  inout bit;
+      r0   :  inout bit;
+      r3   :  inout bit;
+      vdde :  in bit;
+      vddi :  in bit;
+      vsse :  in bit;
+      vssi :  in bit;
+      y    :  inout bit_vector(3 downto 0);
+      zero :  out bit
+   );
+end amd2901;
+
+architecture structural of amd2901 is
+component coeur
+   port (
+      a_from_pads   :  in bit_vector(3 downto 0);
+      b_from_pads   :  in bit_vector(3 downto 0);
+      cin_from_pads :  in bit;
+      ck            :  in bit;
+      cout_to_pads  :  out bit;
+      d_from_pads   :  in bit_vector(3 downto 0);
+      f3_to_pads    :  out bit;
+      i_from_pads   :  in bit_vector(8 downto 0);
+      ng_to_pads    :  out bit;
+      noe_from_pads :  in bit;
+      np_to_pads    :  out bit;
+      ovr_to_pads   :  out bit;
+      q0_from_pads  :  in bit;
+      q0_to_pads    :  out bit;
+      q3_from_pads  :  in bit;
+      q3_to_pads    :  out bit;
+      r0_from_pads  :  in bit;
+      r0_to_pads    :  out bit;
+      r3_from_pads  :  in bit;
+      r3_to_pads    :  out bit;
+      shift_l       :  out bit;
+      shift_r       :  out bit;
+      vdd           :  in bit;
+      vss           :  in bit;
+      y_oe          :  out bit;
+      y_to_pads     :  out bit_vector(3 downto 0);
+      zero_to_pads  :  out bit
+   );
+end component;
+
+component pck_px
+   port (
+      ck   :  out bit;
+      pad  :  in bit;
+      vdde :  in bit;
+      vddi :  in bit;
+      vsse :  in bit;
+      vssi :  in bit
+   );
+end component;
+
+component pi_px
+   port (
+      ck   :  in bit;
+      pad  :  in bit;
+      t    :  out bit;
+      vdde :  in bit;
+      vddi :  in bit;
+      vsse :  in bit;
+      vssi :  in bit
+   );
+end component;
+
+component po_px
+   port (
+      ck   :  in bit;
+      i    :  in bit;
+      pad  :  out bit;
+      vdde :  in bit;
+      vddi :  in bit;
+      vsse :  in bit;
+      vssi :  in bit
+   );
+end component;
+
+component pvddick_px
+   port (
+      ck   :  in bit;
+      cko  :  out bit;
+      vdde :  in bit;
+      vddi :  in bit;
+      vsse :  in bit;
+      vssi :  in bit
+   );
+end component;
+
+component pot_px
+   port (
+      b    :  in bit;
+      ck   :  in bit;
+      i    :  in bit;
+      pad  :  out mux_bit bus;
+      vdde :  in bit;
+      vddi :  in bit;
+      vsse :  in bit;
+      vssi :  in bit
+   );
+end component;
+
+component piot_px
+   port (
+      b    :  in bit;
+      ck   :  in bit;
+      i    :  in bit;
+      pad  :  out mux_bit bus;
+      t    :  out bit;
+      vdde :  in bit;
+      vddi :  in bit;
+      vsse :  in bit;
+      vssi :  in bit
+   );
+end component;
+
+component pvssick_px
+   port (
+      ck   :  in bit;
+      cko  :  out bit;
+      vdde :  in bit;
+      vddi :  in bit;
+      vsse :  in bit;
+      vssi :  in bit
+   );
+end component;
+
+component pvddeck_px
+   port (
+      ck   :  in bit;
+      cko  :  out bit;
+      vdde :  in bit;
+      vddi :  in bit;
+      vsse :  in bit;
+      vssi :  in bit
+   );
+end component;
+
+component pvsseck_px
+   port (
+      ck   :  in bit;
+      cko  :  out bit;
+      vdde :  in bit;
+      vddi :  in bit;
+      vsse :  in bit;
+      vssi :  in bit
+   );
+end component;
+
+signal a_from_pads                     : bit_vector(3 downto 0);
+signal b_from_pads                     : bit_vector(3 downto 0);
+signal blockagenet                     : bit;
+signal cin_from_pads                   : bit;
+signal ck_ring                         : bit;
+signal ckc                             : bit;
+signal core_alu_out                    : bit_vector(3 downto 0);
+signal core_iaccu_a2_x2_sig            : bit;
+signal core_iaccu_accu_reg             : bit_vector(3 downto 0);
+signal core_iaccu_inv_x2_2_sig         : bit;
+signal core_iaccu_inv_x2_sig           : bit;
+signal core_iaccu_na2_x1_2_sig         : bit;
+signal core_iaccu_na2_x1_3_sig         : bit;
+signal core_iaccu_na2_x1_4_sig         : bit;
+signal core_iaccu_na2_x1_sig           : bit;
+signal core_iaccu_na3_x1_2_sig         : bit;
+signal core_iaccu_na3_x1_3_sig         : bit;
+signal core_iaccu_na3_x1_4_sig         : bit;
+signal core_iaccu_na3_x1_sig           : bit;
+signal core_iaccu_nao22_x1_2_sig       : bit;
+signal core_iaccu_nao22_x1_sig         : bit;
+signal core_iaccu_no2_x1_2_sig         : bit;
+signal core_iaccu_no2_x1_3_sig         : bit;
+signal core_iaccu_no2_x1_4_sig         : bit;
+signal core_iaccu_no2_x1_5_sig         : bit;
+signal core_iaccu_no2_x1_sig           : bit;
+signal core_iaccu_not_accu_reg         : bit_vector(3 downto 1);
+signal core_iaccu_not_aux0             : bit;
+signal core_iaccu_not_aux1             : bit;
+signal core_iaccu_not_aux2             : bit;
+signal core_iaccu_not_aux3             : bit;
+signal core_iaccu_not_aux4             : bit;
+signal core_iaccu_not_i                : bit_vector(2 downto 1);
+signal core_iaccu_o2_x2_2_sig          : bit;
+signal core_iaccu_o2_x2_sig            : bit;
+signal core_iaccu_o3_x2_2_sig          : bit;
+signal core_iaccu_o3_x2_3_sig          : bit;
+signal core_iaccu_o3_x2_4_sig          : bit;
+signal core_iaccu_o3_x2_sig            : bit;
+signal core_iaccu_oa22_x2_2_sig        : bit;
+signal core_iaccu_oa22_x2_3_sig        : bit;
+signal core_iaccu_oa22_x2_4_sig        : bit;
+signal core_iaccu_oa22_x2_sig          : bit;
+signal core_ialu_a2_x2_10_sig          : bit;
+signal core_ialu_a2_x2_11_sig          : bit;
+signal core_ialu_a2_x2_12_sig          : bit;
+signal core_ialu_a2_x2_2_sig           : bit;
+signal core_ialu_a2_x2_3_sig           : bit;
+signal core_ialu_a2_x2_4_sig           : bit;
+signal core_ialu_a2_x2_5_sig           : bit;
+signal core_ialu_a2_x2_6_sig           : bit;
+signal core_ialu_a2_x2_7_sig           : bit;
+signal core_ialu_a2_x2_8_sig           : bit;
+signal core_ialu_a2_x2_9_sig           : bit;
+signal core_ialu_a2_x2_sig             : bit;
+signal core_ialu_a3_x2_2_sig           : bit;
+signal core_ialu_a3_x2_3_sig           : bit;
+signal core_ialu_a3_x2_sig             : bit;
+signal core_ialu_a4_x2_sig             : bit;
+signal core_ialu_an12_x1_sig           : bit;
+signal core_ialu_ao22_x2_2_sig         : bit;
+signal core_ialu_ao22_x2_3_sig         : bit;
+signal core_ialu_ao22_x2_4_sig         : bit;
+signal core_ialu_ao22_x2_sig           : bit;
+signal core_ialu_ao2o22_x2_2_sig       : bit;
+signal core_ialu_ao2o22_x2_sig         : bit;
+signal core_ialu_aux1                  : bit;
+signal core_ialu_aux100                : bit;
+signal core_ialu_aux102                : bit;
+signal core_ialu_aux104                : bit;
+signal core_ialu_aux105                : bit;
+signal core_ialu_aux108                : bit;
+signal core_ialu_aux109                : bit;
+signal core_ialu_aux111                : bit;
+signal core_ialu_aux114                : bit;
+signal core_ialu_aux12                 : bit;
+signal core_ialu_aux16                 : bit;
+signal core_ialu_aux17                 : bit;
+signal core_ialu_aux19                 : bit;
+signal core_ialu_aux20                 : bit;
+signal core_ialu_aux21                 : bit;
+signal core_ialu_aux23                 : bit;
+signal core_ialu_aux25                 : bit;
+signal core_ialu_aux29                 : bit;
+signal core_ialu_aux3                  : bit;
+signal core_ialu_aux32                 : bit;
+signal core_ialu_aux39                 : bit;
+signal core_ialu_aux4                  : bit;
+signal core_ialu_aux42                 : bit;
+signal core_ialu_aux43                 : bit;
+signal core_ialu_aux51                 : bit;
+signal core_ialu_aux63                 : bit;
+signal core_ialu_aux68                 : bit;
+signal core_ialu_aux7                  : bit;
+signal core_ialu_aux70                 : bit;
+signal core_ialu_aux75                 : bit;
+signal core_ialu_aux77                 : bit;
+signal core_ialu_aux91                 : bit;
+signal core_ialu_aux98                 : bit;
+signal core_ialu_aux99                 : bit;
+signal core_ialu_inv_x2_10_sig         : bit;
+signal core_ialu_inv_x2_11_sig         : bit;
+signal core_ialu_inv_x2_12_sig         : bit;
+signal core_ialu_inv_x2_2_sig          : bit;
+signal core_ialu_inv_x2_3_sig          : bit;
+signal core_ialu_inv_x2_4_sig          : bit;
+signal core_ialu_inv_x2_5_sig          : bit;
+signal core_ialu_inv_x2_6_sig          : bit;
+signal core_ialu_inv_x2_7_sig          : bit;
+signal core_ialu_inv_x2_8_sig          : bit;
+signal core_ialu_inv_x2_9_sig          : bit;
+signal core_ialu_inv_x2_sig            : bit;
+signal core_ialu_mx2_x2_2_sig          : bit;
+signal core_ialu_mx2_x2_sig            : bit;
+signal core_ialu_mx3_x2_2_sig          : bit;
+signal core_ialu_mx3_x2_3_sig          : bit;
+signal core_ialu_mx3_x2_4_sig          : bit;
+signal core_ialu_mx3_x2_5_sig          : bit;
+signal core_ialu_mx3_x2_6_sig          : bit;
+signal core_ialu_mx3_x2_sig            : bit;
+signal core_ialu_na2_x1_10_sig         : bit;
+signal core_ialu_na2_x1_11_sig         : bit;
+signal core_ialu_na2_x1_2_sig          : bit;
+signal core_ialu_na2_x1_3_sig          : bit;
+signal core_ialu_na2_x1_4_sig          : bit;
+signal core_ialu_na2_x1_5_sig          : bit;
+signal core_ialu_na2_x1_6_sig          : bit;
+signal core_ialu_na2_x1_7_sig          : bit;
+signal core_ialu_na2_x1_8_sig          : bit;
+signal core_ialu_na2_x1_9_sig          : bit;
+signal core_ialu_na2_x1_sig            : bit;
+signal core_ialu_na3_x1_10_sig         : bit;
+signal core_ialu_na3_x1_11_sig         : bit;
+signal core_ialu_na3_x1_12_sig         : bit;
+signal core_ialu_na3_x1_13_sig         : bit;
+signal core_ialu_na3_x1_14_sig         : bit;
+signal core_ialu_na3_x1_15_sig         : bit;
+signal core_ialu_na3_x1_16_sig         : bit;
+signal core_ialu_na3_x1_17_sig         : bit;
+signal core_ialu_na3_x1_18_sig         : bit;
+signal core_ialu_na3_x1_19_sig         : bit;
+signal core_ialu_na3_x1_20_sig         : bit;
+signal core_ialu_na3_x1_2_sig          : bit;
+signal core_ialu_na3_x1_3_sig          : bit;
+signal core_ialu_na3_x1_4_sig          : bit;
+signal core_ialu_na3_x1_5_sig          : bit;
+signal core_ialu_na3_x1_6_sig          : bit;
+signal core_ialu_na3_x1_7_sig          : bit;
+signal core_ialu_na3_x1_8_sig          : bit;
+signal core_ialu_na3_x1_9_sig          : bit;
+signal core_ialu_na3_x1_sig            : bit;
+signal core_ialu_na4_x1_2_sig          : bit;
+signal core_ialu_na4_x1_3_sig          : bit;
+signal core_ialu_na4_x1_sig            : bit;
+signal core_ialu_nao22_x1_2_sig        : bit;
+signal core_ialu_nao22_x1_3_sig        : bit;
+signal core_ialu_nao22_x1_4_sig        : bit;
+signal core_ialu_nao22_x1_5_sig        : bit;
+signal core_ialu_nao22_x1_6_sig        : bit;
+signal core_ialu_nao22_x1_7_sig        : bit;
+signal core_ialu_nao22_x1_8_sig        : bit;
+signal core_ialu_nao22_x1_9_sig        : bit;
+signal core_ialu_nao22_x1_sig          : bit;
+signal core_ialu_nao2o22_x1_2_sig      : bit;
+signal core_ialu_nao2o22_x1_3_sig      : bit;
+signal core_ialu_nao2o22_x1_4_sig      : bit;
+signal core_ialu_nao2o22_x1_5_sig      : bit;
+signal core_ialu_nao2o22_x1_6_sig      : bit;
+signal core_ialu_nao2o22_x1_sig        : bit;
+signal core_ialu_no2_x1_2_sig          : bit;
+signal core_ialu_no2_x1_3_sig          : bit;
+signal core_ialu_no2_x1_4_sig          : bit;
+signal core_ialu_no2_x1_5_sig          : bit;
+signal core_ialu_no2_x1_6_sig          : bit;
+signal core_ialu_no2_x1_7_sig          : bit;
+signal core_ialu_no2_x1_8_sig          : bit;
+signal core_ialu_no2_x1_9_sig          : bit;
+signal core_ialu_no2_x1_sig            : bit;
+signal core_ialu_no3_x1_2_sig          : bit;
+signal core_ialu_no3_x1_3_sig          : bit;
+signal core_ialu_no3_x1_4_sig          : bit;
+signal core_ialu_no3_x1_5_sig          : bit;
+signal core_ialu_no3_x1_6_sig          : bit;
+signal core_ialu_no3_x1_7_sig          : bit;
+signal core_ialu_no3_x1_sig            : bit;
+signal core_ialu_no4_x1_2_sig          : bit;
+signal core_ialu_no4_x1_3_sig          : bit;
+signal core_ialu_no4_x1_4_sig          : bit;
+signal core_ialu_no4_x1_5_sig          : bit;
+signal core_ialu_no4_x1_sig            : bit;
+signal core_ialu_noa22_x1_2_sig        : bit;
+signal core_ialu_noa22_x1_3_sig        : bit;
+signal core_ialu_noa22_x1_4_sig        : bit;
+signal core_ialu_noa22_x1_5_sig        : bit;
+signal core_ialu_noa22_x1_sig          : bit;
+signal core_ialu_noa3ao322_x1_sig      : bit;
+signal core_ialu_not_aux0              : bit;
+signal core_ialu_not_aux1              : bit;
+signal core_ialu_not_aux101            : bit;
+signal core_ialu_not_aux102            : bit;
+signal core_ialu_not_aux103            : bit;
+signal core_ialu_not_aux104            : bit;
+signal core_ialu_not_aux105            : bit;
+signal core_ialu_not_aux106            : bit;
+signal core_ialu_not_aux107            : bit;
+signal core_ialu_not_aux108            : bit;
+signal core_ialu_not_aux110            : bit;
+signal core_ialu_not_aux112            : bit;
+signal core_ialu_not_aux113            : bit;
+signal core_ialu_not_aux115            : bit;
+signal core_ialu_not_aux13             : bit;
+signal core_ialu_not_aux15             : bit;
+signal core_ialu_not_aux16             : bit;
+signal core_ialu_not_aux17             : bit;
+signal core_ialu_not_aux19             : bit;
+signal core_ialu_not_aux20             : bit;
+signal core_ialu_not_aux21             : bit;
+signal core_ialu_not_aux22             : bit;
+signal core_ialu_not_aux23             : bit;
+signal core_ialu_not_aux24             : bit;
+signal core_ialu_not_aux28             : bit;
+signal core_ialu_not_aux3              : bit;
+signal core_ialu_not_aux31             : bit;
+signal core_ialu_not_aux32             : bit;
+signal core_ialu_not_aux33             : bit;
+signal core_ialu_not_aux37             : bit;
+signal core_ialu_not_aux38             : bit;
+signal core_ialu_not_aux39             : bit;
+signal core_ialu_not_aux4              : bit;
+signal core_ialu_not_aux40             : bit;
+signal core_ialu_not_aux41             : bit;
+signal core_ialu_not_aux42             : bit;
+signal core_ialu_not_aux43             : bit;
+signal core_ialu_not_aux47             : bit;
+signal core_ialu_not_aux48             : bit;
+signal core_ialu_not_aux49             : bit;
+signal core_ialu_not_aux5              : bit;
+signal core_ialu_not_aux50             : bit;
+signal core_ialu_not_aux52             : bit;
+signal core_ialu_not_aux54             : bit;
+signal core_ialu_not_aux56             : bit;
+signal core_ialu_not_aux60             : bit;
+signal core_ialu_not_aux61             : bit;
+signal core_ialu_not_aux62             : bit;
+signal core_ialu_not_aux63             : bit;
+signal core_ialu_not_aux67             : bit;
+signal core_ialu_not_aux68             : bit;
+signal core_ialu_not_aux69             : bit;
+signal core_ialu_not_aux7              : bit;
+signal core_ialu_not_aux74             : bit;
+signal core_ialu_not_aux76             : bit;
+signal core_ialu_not_aux77             : bit;
+signal core_ialu_not_aux78             : bit;
+signal core_ialu_not_aux79             : bit;
+signal core_ialu_not_aux8              : bit;
+signal core_ialu_not_aux80             : bit;
+signal core_ialu_not_aux81             : bit;
+signal core_ialu_not_aux89             : bit;
+signal core_ialu_not_aux9              : bit;
+signal core_ialu_not_aux93             : bit;
+signal core_ialu_not_aux95             : bit;
+signal core_ialu_not_aux97             : bit;
+signal core_ialu_not_cin               : bit;
+signal core_ialu_not_i                 : bit_vector(2 downto 0);
+signal core_ialu_not_r                 : bit_vector(2 downto 0);
+signal core_ialu_not_s                 : bit_vector(2 downto 0);
+signal core_ialu_nxr2_x1_2_sig         : bit;
+signal core_ialu_nxr2_x1_3_sig         : bit;
+signal core_ialu_nxr2_x1_sig           : bit;
+signal core_ialu_o2_x2_10_sig          : bit;
+signal core_ialu_o2_x2_11_sig          : bit;
+signal core_ialu_o2_x2_12_sig          : bit;
+signal core_ialu_o2_x2_13_sig          : bit;
+signal core_ialu_o2_x2_2_sig           : bit;
+signal core_ialu_o2_x2_3_sig           : bit;
+signal core_ialu_o2_x2_4_sig           : bit;
+signal core_ialu_o2_x2_5_sig           : bit;
+signal core_ialu_o2_x2_6_sig           : bit;
+signal core_ialu_o2_x2_7_sig           : bit;
+signal core_ialu_o2_x2_8_sig           : bit;
+signal core_ialu_o2_x2_9_sig           : bit;
+signal core_ialu_o2_x2_sig             : bit;
+signal core_ialu_o3_x2_10_sig          : bit;
+signal core_ialu_o3_x2_11_sig          : bit;
+signal core_ialu_o3_x2_12_sig          : bit;
+signal core_ialu_o3_x2_2_sig           : bit;
+signal core_ialu_o3_x2_3_sig           : bit;
+signal core_ialu_o3_x2_4_sig           : bit;
+signal core_ialu_o3_x2_5_sig           : bit;
+signal core_ialu_o3_x2_6_sig           : bit;
+signal core_ialu_o3_x2_7_sig           : bit;
+signal core_ialu_o3_x2_8_sig           : bit;
+signal core_ialu_o3_x2_9_sig           : bit;
+signal core_ialu_o3_x2_sig             : bit;
+signal core_ialu_o4_x2_sig             : bit;
+signal core_ialu_oa22_x2_2_sig         : bit;
+signal core_ialu_oa22_x2_3_sig         : bit;
+signal core_ialu_oa22_x2_4_sig         : bit;
+signal core_ialu_oa22_x2_sig           : bit;
+signal core_ialu_oa2a22_x2_2_sig       : bit;
+signal core_ialu_oa2a22_x2_sig         : bit;
+signal core_ialu_oa2a2a23_x2_sig       : bit;
+signal core_ialu_oa2a2a2a24_x2_sig     : bit;
+signal core_ialu_oa2ao222_x2_sig       : bit;
+signal core_ialu_on12_x1_2_sig         : bit;
+signal core_ialu_on12_x1_sig           : bit;
+signal core_ialu_xr2_x1_10_sig         : bit;
+signal core_ialu_xr2_x1_11_sig         : bit;
+signal core_ialu_xr2_x1_12_sig         : bit;
+signal core_ialu_xr2_x1_2_sig          : bit;
+signal core_ialu_xr2_x1_3_sig          : bit;
+signal core_ialu_xr2_x1_4_sig          : bit;
+signal core_ialu_xr2_x1_5_sig          : bit;
+signal core_ialu_xr2_x1_6_sig          : bit;
+signal core_ialu_xr2_x1_7_sig          : bit;
+signal core_ialu_xr2_x1_8_sig          : bit;
+signal core_ialu_xr2_x1_9_sig          : bit;
+signal core_ialu_xr2_x1_sig            : bit;
+signal core_imuxe_a3_x2_sig            : bit;
+signal core_imuxe_aux2                 : bit;
+signal core_imuxe_aux3                 : bit;
+signal core_imuxe_aux5                 : bit;
+signal core_imuxe_inv_x2_2_sig         : bit;
+signal core_imuxe_inv_x2_3_sig         : bit;
+signal core_imuxe_inv_x2_4_sig         : bit;
+signal core_imuxe_inv_x2_sig           : bit;
+signal core_imuxe_na2_x1_2_sig         : bit;
+signal core_imuxe_na2_x1_3_sig         : bit;
+signal core_imuxe_na2_x1_4_sig         : bit;
+signal core_imuxe_na2_x1_5_sig         : bit;
+signal core_imuxe_na2_x1_sig           : bit;
+signal core_imuxe_na3_x1_2_sig         : bit;
+signal core_imuxe_na3_x1_3_sig         : bit;
+signal core_imuxe_na3_x1_4_sig         : bit;
+signal core_imuxe_na3_x1_5_sig         : bit;
+signal core_imuxe_na3_x1_sig           : bit;
+signal core_imuxe_not_accu             : bit_vector(2 downto 2);
+signal core_imuxe_not_aux0             : bit;
+signal core_imuxe_not_aux1             : bit;
+signal core_imuxe_not_aux4             : bit;
+signal core_imuxe_not_i                : bit_vector(2 downto 0);
+signal core_imuxe_o2_x2_sig            : bit;
+signal core_imuxe_on12_x1_2_sig        : bit;
+signal core_imuxe_on12_x1_3_sig        : bit;
+signal core_imuxe_on12_x1_4_sig        : bit;
+signal core_imuxe_on12_x1_sig          : bit;
+signal core_imuxs_inv_x2_2_sig         : bit;
+signal core_imuxs_inv_x2_3_sig         : bit;
+signal core_imuxs_inv_x2_4_sig         : bit;
+signal core_imuxs_inv_x2_5_sig         : bit;
+signal core_imuxs_inv_x2_6_sig         : bit;
+signal core_imuxs_inv_x2_7_sig         : bit;
+signal core_imuxs_inv_x2_sig           : bit;
+signal core_imuxs_na4_x1_sig           : bit;
+signal core_imuxs_nao22_x1_sig         : bit;
+signal core_imuxs_nao2o22_x1_2_sig     : bit;
+signal core_imuxs_nao2o22_x1_3_sig     : bit;
+signal core_imuxs_nao2o22_x1_sig       : bit;
+signal core_imuxs_not_aux1             : bit;
+signal core_imuxs_not_i                : bit_vector(2 downto 2);
+signal core_imuxs_not_noe              : bit;
+signal core_iram_a2_x2_10_sig          : bit;
+signal core_iram_a2_x2_11_sig          : bit;
+signal core_iram_a2_x2_12_sig          : bit;
+signal core_iram_a2_x2_13_sig          : bit;
+signal core_iram_a2_x2_14_sig          : bit;
+signal core_iram_a2_x2_15_sig          : bit;
+signal core_iram_a2_x2_2_sig           : bit;
+signal core_iram_a2_x2_3_sig           : bit;
+signal core_iram_a2_x2_4_sig           : bit;
+signal core_iram_a2_x2_5_sig           : bit;
+signal core_iram_a2_x2_6_sig           : bit;
+signal core_iram_a2_x2_7_sig           : bit;
+signal core_iram_a2_x2_8_sig           : bit;
+signal core_iram_a2_x2_9_sig           : bit;
+signal core_iram_a2_x2_sig             : bit;
+signal core_iram_a3_x2_10_sig          : bit;
+signal core_iram_a3_x2_11_sig          : bit;
+signal core_iram_a3_x2_12_sig          : bit;
+signal core_iram_a3_x2_13_sig          : bit;
+signal core_iram_a3_x2_14_sig          : bit;
+signal core_iram_a3_x2_15_sig          : bit;
+signal core_iram_a3_x2_2_sig           : bit;
+signal core_iram_a3_x2_3_sig           : bit;
+signal core_iram_a3_x2_4_sig           : bit;
+signal core_iram_a3_x2_5_sig           : bit;
+signal core_iram_a3_x2_6_sig           : bit;
+signal core_iram_a3_x2_7_sig           : bit;
+signal core_iram_a3_x2_8_sig           : bit;
+signal core_iram_a3_x2_9_sig           : bit;
+signal core_iram_a3_x2_sig             : bit;
+signal core_iram_a4_x2_2_sig           : bit;
+signal core_iram_a4_x2_3_sig           : bit;
+signal core_iram_a4_x2_4_sig           : bit;
+signal core_iram_a4_x2_sig             : bit;
+signal core_iram_ab_data_idx_0         : bit_vector(3 downto 0);
+signal core_iram_ab_data_idx_1         : bit_vector(3 downto 0);
+signal core_iram_ab_data_idx_10        : bit_vector(3 downto 0);
+signal core_iram_ab_data_idx_11        : bit_vector(3 downto 0);
+signal core_iram_ab_data_idx_12        : bit_vector(3 downto 0);
+signal core_iram_ab_data_idx_13        : bit_vector(3 downto 0);
+signal core_iram_ab_data_idx_14        : bit_vector(3 downto 0);
+signal core_iram_ab_data_idx_15        : bit_vector(3 downto 0);
+signal core_iram_ab_data_idx_2         : bit_vector(3 downto 0);
+signal core_iram_ab_data_idx_3         : bit_vector(3 downto 0);
+signal core_iram_ab_data_idx_4         : bit_vector(3 downto 0);
+signal core_iram_ab_data_idx_5         : bit_vector(3 downto 0);
+signal core_iram_ab_data_idx_6         : bit_vector(3 downto 0);
+signal core_iram_ab_data_idx_7         : bit_vector(3 downto 0);
+signal core_iram_ab_data_idx_8         : bit_vector(3 downto 0);
+signal core_iram_ab_data_idx_9         : bit_vector(3 downto 0);
+signal core_iram_ao22_x2_10_sig        : bit;
+signal core_iram_ao22_x2_11_sig        : bit;
+signal core_iram_ao22_x2_12_sig        : bit;
+signal core_iram_ao22_x2_13_sig        : bit;
+signal core_iram_ao22_x2_14_sig        : bit;
+signal core_iram_ao22_x2_15_sig        : bit;
+signal core_iram_ao22_x2_16_sig        : bit;
+signal core_iram_ao22_x2_17_sig        : bit;
+signal core_iram_ao22_x2_18_sig        : bit;
+signal core_iram_ao22_x2_19_sig        : bit;
+signal core_iram_ao22_x2_20_sig        : bit;
+signal core_iram_ao22_x2_21_sig        : bit;
+signal core_iram_ao22_x2_22_sig        : bit;
+signal core_iram_ao22_x2_23_sig        : bit;
+signal core_iram_ao22_x2_24_sig        : bit;
+signal core_iram_ao22_x2_25_sig        : bit;
+signal core_iram_ao22_x2_26_sig        : bit;
+signal core_iram_ao22_x2_27_sig        : bit;
+signal core_iram_ao22_x2_28_sig        : bit;
+signal core_iram_ao22_x2_29_sig        : bit;
+signal core_iram_ao22_x2_2_sig         : bit;
+signal core_iram_ao22_x2_30_sig        : bit;
+signal core_iram_ao22_x2_31_sig        : bit;
+signal core_iram_ao22_x2_32_sig        : bit;
+signal core_iram_ao22_x2_33_sig        : bit;
+signal core_iram_ao22_x2_34_sig        : bit;
+signal core_iram_ao22_x2_35_sig        : bit;
+signal core_iram_ao22_x2_36_sig        : bit;
+signal core_iram_ao22_x2_37_sig        : bit;
+signal core_iram_ao22_x2_38_sig        : bit;
+signal core_iram_ao22_x2_39_sig        : bit;
+signal core_iram_ao22_x2_3_sig         : bit;
+signal core_iram_ao22_x2_40_sig        : bit;
+signal core_iram_ao22_x2_41_sig        : bit;
+signal core_iram_ao22_x2_42_sig        : bit;
+signal core_iram_ao22_x2_43_sig        : bit;
+signal core_iram_ao22_x2_44_sig        : bit;
+signal core_iram_ao22_x2_45_sig        : bit;
+signal core_iram_ao22_x2_46_sig        : bit;
+signal core_iram_ao22_x2_47_sig        : bit;
+signal core_iram_ao22_x2_48_sig        : bit;
+signal core_iram_ao22_x2_49_sig        : bit;
+signal core_iram_ao22_x2_4_sig         : bit;
+signal core_iram_ao22_x2_50_sig        : bit;
+signal core_iram_ao22_x2_5_sig         : bit;
+signal core_iram_ao22_x2_6_sig         : bit;
+signal core_iram_ao22_x2_7_sig         : bit;
+signal core_iram_ao22_x2_8_sig         : bit;
+signal core_iram_ao22_x2_9_sig         : bit;
+signal core_iram_ao22_x2_sig           : bit;
+signal core_iram_aux102                : bit;
+signal core_iram_aux103                : bit;
+signal core_iram_aux105                : bit;
+signal core_iram_aux107                : bit;
+signal core_iram_aux109                : bit;
+signal core_iram_aux111                : bit;
+signal core_iram_aux112                : bit;
+signal core_iram_aux113                : bit;
+signal core_iram_aux114                : bit;
+signal core_iram_aux115                : bit;
+signal core_iram_aux12                 : bit;
+signal core_iram_aux120                : bit;
+signal core_iram_aux139                : bit;
+signal core_iram_aux14                 : bit;
+signal core_iram_aux153                : bit;
+signal core_iram_aux154                : bit;
+signal core_iram_aux155                : bit;
+signal core_iram_aux156                : bit;
+signal core_iram_aux157                : bit;
+signal core_iram_aux158                : bit;
+signal core_iram_aux159                : bit;
+signal core_iram_aux160                : bit;
+signal core_iram_aux17                 : bit;
+signal core_iram_aux4                  : bit;
+signal core_iram_aux42                 : bit;
+signal core_iram_aux47                 : bit;
+signal core_iram_aux48                 : bit;
+signal core_iram_aux56                 : bit;
+signal core_iram_aux57                 : bit;
+signal core_iram_aux61                 : bit;
+signal core_iram_aux62                 : bit;
+signal core_iram_aux65                 : bit;
+signal core_iram_aux66                 : bit;
+signal core_iram_aux67                 : bit;
+signal core_iram_aux68                 : bit;
+signal core_iram_aux72                 : bit;
+signal core_iram_aux73                 : bit;
+signal core_iram_aux81                 : bit;
+signal core_iram_aux86                 : bit;
+signal core_iram_aux87                 : bit;
+signal core_iram_aux90                 : bit;
+signal core_iram_aux93                 : bit;
+signal core_iram_aux97                 : bit;
+signal core_iram_aux99                 : bit;
+signal core_iram_inv_x2_10_sig         : bit;
+signal core_iram_inv_x2_11_sig         : bit;
+signal core_iram_inv_x2_12_sig         : bit;
+signal core_iram_inv_x2_13_sig         : bit;
+signal core_iram_inv_x2_14_sig         : bit;
+signal core_iram_inv_x2_15_sig         : bit;
+signal core_iram_inv_x2_16_sig         : bit;
+signal core_iram_inv_x2_17_sig         : bit;
+signal core_iram_inv_x2_2_sig          : bit;
+signal core_iram_inv_x2_3_sig          : bit;
+signal core_iram_inv_x2_4_sig          : bit;
+signal core_iram_inv_x2_5_sig          : bit;
+signal core_iram_inv_x2_6_sig          : bit;
+signal core_iram_inv_x2_7_sig          : bit;
+signal core_iram_inv_x2_8_sig          : bit;
+signal core_iram_inv_x2_9_sig          : bit;
+signal core_iram_inv_x2_sig            : bit;
+signal core_iram_na2_x1_10_sig         : bit;
+signal core_iram_na2_x1_11_sig         : bit;
+signal core_iram_na2_x1_12_sig         : bit;
+signal core_iram_na2_x1_13_sig         : bit;
+signal core_iram_na2_x1_14_sig         : bit;
+signal core_iram_na2_x1_15_sig         : bit;
+signal core_iram_na2_x1_16_sig         : bit;
+signal core_iram_na2_x1_17_sig         : bit;
+signal core_iram_na2_x1_18_sig         : bit;
+signal core_iram_na2_x1_19_sig         : bit;
+signal core_iram_na2_x1_20_sig         : bit;
+signal core_iram_na2_x1_21_sig         : bit;
+signal core_iram_na2_x1_22_sig         : bit;
+signal core_iram_na2_x1_23_sig         : bit;
+signal core_iram_na2_x1_24_sig         : bit;
+signal core_iram_na2_x1_25_sig         : bit;
+signal core_iram_na2_x1_26_sig         : bit;
+signal core_iram_na2_x1_27_sig         : bit;
+signal core_iram_na2_x1_28_sig         : bit;
+signal core_iram_na2_x1_29_sig         : bit;
+signal core_iram_na2_x1_2_sig          : bit;
+signal core_iram_na2_x1_30_sig         : bit;
+signal core_iram_na2_x1_31_sig         : bit;
+signal core_iram_na2_x1_32_sig         : bit;
+signal core_iram_na2_x1_33_sig         : bit;
+signal core_iram_na2_x1_34_sig         : bit;
+signal core_iram_na2_x1_35_sig         : bit;
+signal core_iram_na2_x1_36_sig         : bit;
+signal core_iram_na2_x1_37_sig         : bit;
+signal core_iram_na2_x1_38_sig         : bit;
+signal core_iram_na2_x1_39_sig         : bit;
+signal core_iram_na2_x1_3_sig          : bit;
+signal core_iram_na2_x1_40_sig         : bit;
+signal core_iram_na2_x1_41_sig         : bit;
+signal core_iram_na2_x1_42_sig         : bit;
+signal core_iram_na2_x1_43_sig         : bit;
+signal core_iram_na2_x1_44_sig         : bit;
+signal core_iram_na2_x1_45_sig         : bit;
+signal core_iram_na2_x1_46_sig         : bit;
+signal core_iram_na2_x1_47_sig         : bit;
+signal core_iram_na2_x1_48_sig         : bit;
+signal core_iram_na2_x1_49_sig         : bit;
+signal core_iram_na2_x1_4_sig          : bit;
+signal core_iram_na2_x1_50_sig         : bit;
+signal core_iram_na2_x1_51_sig         : bit;
+signal core_iram_na2_x1_52_sig         : bit;
+signal core_iram_na2_x1_53_sig         : bit;
+signal core_iram_na2_x1_5_sig          : bit;
+signal core_iram_na2_x1_6_sig          : bit;
+signal core_iram_na2_x1_7_sig          : bit;
+signal core_iram_na2_x1_8_sig          : bit;
+signal core_iram_na2_x1_9_sig          : bit;
+signal core_iram_na2_x1_sig            : bit;
+signal core_iram_na3_x1_10_sig         : bit;
+signal core_iram_na3_x1_11_sig         : bit;
+signal core_iram_na3_x1_12_sig         : bit;
+signal core_iram_na3_x1_13_sig         : bit;
+signal core_iram_na3_x1_14_sig         : bit;
+signal core_iram_na3_x1_15_sig         : bit;
+signal core_iram_na3_x1_16_sig         : bit;
+signal core_iram_na3_x1_17_sig         : bit;
+signal core_iram_na3_x1_18_sig         : bit;
+signal core_iram_na3_x1_19_sig         : bit;
+signal core_iram_na3_x1_20_sig         : bit;
+signal core_iram_na3_x1_21_sig         : bit;
+signal core_iram_na3_x1_22_sig         : bit;
+signal core_iram_na3_x1_23_sig         : bit;
+signal core_iram_na3_x1_24_sig         : bit;
+signal core_iram_na3_x1_25_sig         : bit;
+signal core_iram_na3_x1_26_sig         : bit;
+signal core_iram_na3_x1_27_sig         : bit;
+signal core_iram_na3_x1_28_sig         : bit;
+signal core_iram_na3_x1_29_sig         : bit;
+signal core_iram_na3_x1_2_sig          : bit;
+signal core_iram_na3_x1_30_sig         : bit;
+signal core_iram_na3_x1_31_sig         : bit;
+signal core_iram_na3_x1_32_sig         : bit;
+signal core_iram_na3_x1_33_sig         : bit;
+signal core_iram_na3_x1_34_sig         : bit;
+signal core_iram_na3_x1_35_sig         : bit;
+signal core_iram_na3_x1_36_sig         : bit;
+signal core_iram_na3_x1_37_sig         : bit;
+signal core_iram_na3_x1_38_sig         : bit;
+signal core_iram_na3_x1_39_sig         : bit;
+signal core_iram_na3_x1_3_sig          : bit;
+signal core_iram_na3_x1_40_sig         : bit;
+signal core_iram_na3_x1_41_sig         : bit;
+signal core_iram_na3_x1_42_sig         : bit;
+signal core_iram_na3_x1_43_sig         : bit;
+signal core_iram_na3_x1_44_sig         : bit;
+signal core_iram_na3_x1_45_sig         : bit;
+signal core_iram_na3_x1_46_sig         : bit;
+signal core_iram_na3_x1_47_sig         : bit;
+signal core_iram_na3_x1_48_sig         : bit;
+signal core_iram_na3_x1_49_sig         : bit;
+signal core_iram_na3_x1_4_sig          : bit;
+signal core_iram_na3_x1_50_sig         : bit;
+signal core_iram_na3_x1_51_sig         : bit;
+signal core_iram_na3_x1_52_sig         : bit;
+signal core_iram_na3_x1_53_sig         : bit;
+signal core_iram_na3_x1_54_sig         : bit;
+signal core_iram_na3_x1_55_sig         : bit;
+signal core_iram_na3_x1_56_sig         : bit;
+signal core_iram_na3_x1_57_sig         : bit;
+signal core_iram_na3_x1_58_sig         : bit;
+signal core_iram_na3_x1_59_sig         : bit;
+signal core_iram_na3_x1_5_sig          : bit;
+signal core_iram_na3_x1_60_sig         : bit;
+signal core_iram_na3_x1_61_sig         : bit;
+signal core_iram_na3_x1_62_sig         : bit;
+signal core_iram_na3_x1_63_sig         : bit;
+signal core_iram_na3_x1_64_sig         : bit;
+signal core_iram_na3_x1_65_sig         : bit;
+signal core_iram_na3_x1_6_sig          : bit;
+signal core_iram_na3_x1_7_sig          : bit;
+signal core_iram_na3_x1_8_sig          : bit;
+signal core_iram_na3_x1_9_sig          : bit;
+signal core_iram_na3_x1_sig            : bit;
+signal core_iram_na4_x1_2_sig          : bit;
+signal core_iram_na4_x1_3_sig          : bit;
+signal core_iram_na4_x1_4_sig          : bit;
+signal core_iram_na4_x1_5_sig          : bit;
+signal core_iram_na4_x1_6_sig          : bit;
+signal core_iram_na4_x1_7_sig          : bit;
+signal core_iram_na4_x1_8_sig          : bit;
+signal core_iram_na4_x1_9_sig          : bit;
+signal core_iram_na4_x1_sig            : bit;
+signal core_iram_nao22_x1_2_sig        : bit;
+signal core_iram_nao22_x1_3_sig        : bit;
+signal core_iram_nao22_x1_4_sig        : bit;
+signal core_iram_nao22_x1_5_sig        : bit;
+signal core_iram_nao22_x1_6_sig        : bit;
+signal core_iram_nao22_x1_7_sig        : bit;
+signal core_iram_nao22_x1_8_sig        : bit;
+signal core_iram_nao22_x1_9_sig        : bit;
+signal core_iram_nao22_x1_sig          : bit;
+signal core_iram_no2_x1_10_sig         : bit;
+signal core_iram_no2_x1_11_sig         : bit;
+signal core_iram_no2_x1_12_sig         : bit;
+signal core_iram_no2_x1_13_sig         : bit;
+signal core_iram_no2_x1_14_sig         : bit;
+signal core_iram_no2_x1_15_sig         : bit;
+signal core_iram_no2_x1_16_sig         : bit;
+signal core_iram_no2_x1_17_sig         : bit;
+signal core_iram_no2_x1_18_sig         : bit;
+signal core_iram_no2_x1_19_sig         : bit;
+signal core_iram_no2_x1_20_sig         : bit;
+signal core_iram_no2_x1_21_sig         : bit;
+signal core_iram_no2_x1_22_sig         : bit;
+signal core_iram_no2_x1_23_sig         : bit;
+signal core_iram_no2_x1_24_sig         : bit;
+signal core_iram_no2_x1_25_sig         : bit;
+signal core_iram_no2_x1_26_sig         : bit;
+signal core_iram_no2_x1_27_sig         : bit;
+signal core_iram_no2_x1_28_sig         : bit;
+signal core_iram_no2_x1_29_sig         : bit;
+signal core_iram_no2_x1_2_sig          : bit;
+signal core_iram_no2_x1_30_sig         : bit;
+signal core_iram_no2_x1_31_sig         : bit;
+signal core_iram_no2_x1_32_sig         : bit;
+signal core_iram_no2_x1_33_sig         : bit;
+signal core_iram_no2_x1_34_sig         : bit;
+signal core_iram_no2_x1_35_sig         : bit;
+signal core_iram_no2_x1_36_sig         : bit;
+signal core_iram_no2_x1_37_sig         : bit;
+signal core_iram_no2_x1_38_sig         : bit;
+signal core_iram_no2_x1_39_sig         : bit;
+signal core_iram_no2_x1_3_sig          : bit;
+signal core_iram_no2_x1_40_sig         : bit;
+signal core_iram_no2_x1_41_sig         : bit;
+signal core_iram_no2_x1_42_sig         : bit;
+signal core_iram_no2_x1_43_sig         : bit;
+signal core_iram_no2_x1_44_sig         : bit;
+signal core_iram_no2_x1_45_sig         : bit;
+signal core_iram_no2_x1_46_sig         : bit;
+signal core_iram_no2_x1_47_sig         : bit;
+signal core_iram_no2_x1_48_sig         : bit;
+signal core_iram_no2_x1_49_sig         : bit;
+signal core_iram_no2_x1_4_sig          : bit;
+signal core_iram_no2_x1_50_sig         : bit;
+signal core_iram_no2_x1_51_sig         : bit;
+signal core_iram_no2_x1_52_sig         : bit;
+signal core_iram_no2_x1_53_sig         : bit;
+signal core_iram_no2_x1_54_sig         : bit;
+signal core_iram_no2_x1_55_sig         : bit;
+signal core_iram_no2_x1_56_sig         : bit;
+signal core_iram_no2_x1_57_sig         : bit;
+signal core_iram_no2_x1_58_sig         : bit;
+signal core_iram_no2_x1_59_sig         : bit;
+signal core_iram_no2_x1_5_sig          : bit;
+signal core_iram_no2_x1_60_sig         : bit;
+signal core_iram_no2_x1_61_sig         : bit;
+signal core_iram_no2_x1_62_sig         : bit;
+signal core_iram_no2_x1_63_sig         : bit;
+signal core_iram_no2_x1_64_sig         : bit;
+signal core_iram_no2_x1_65_sig         : bit;
+signal core_iram_no2_x1_66_sig         : bit;
+signal core_iram_no2_x1_67_sig         : bit;
+signal core_iram_no2_x1_68_sig         : bit;
+signal core_iram_no2_x1_6_sig          : bit;
+signal core_iram_no2_x1_7_sig          : bit;
+signal core_iram_no2_x1_8_sig          : bit;
+signal core_iram_no2_x1_9_sig          : bit;
+signal core_iram_no2_x1_sig            : bit;
+signal core_iram_no3_x1_2_sig          : bit;
+signal core_iram_no3_x1_3_sig          : bit;
+signal core_iram_no3_x1_4_sig          : bit;
+signal core_iram_no3_x1_5_sig          : bit;
+signal core_iram_no3_x1_sig            : bit;
+signal core_iram_no4_x1_sig            : bit;
+signal core_iram_noa22_x1_10_sig       : bit;
+signal core_iram_noa22_x1_2_sig        : bit;
+signal core_iram_noa22_x1_3_sig        : bit;
+signal core_iram_noa22_x1_4_sig        : bit;
+signal core_iram_noa22_x1_5_sig        : bit;
+signal core_iram_noa22_x1_6_sig        : bit;
+signal core_iram_noa22_x1_7_sig        : bit;
+signal core_iram_noa22_x1_8_sig        : bit;
+signal core_iram_noa22_x1_9_sig        : bit;
+signal core_iram_noa22_x1_sig          : bit;
+signal core_iram_noa2a22_x1_2_sig      : bit;
+signal core_iram_noa2a22_x1_3_sig      : bit;
+signal core_iram_noa2a22_x1_4_sig      : bit;
+signal core_iram_noa2a22_x1_sig        : bit;
+signal core_iram_noa2a2a23_x1_2_sig    : bit;
+signal core_iram_noa2a2a23_x1_3_sig    : bit;
+signal core_iram_noa2a2a23_x1_4_sig    : bit;
+signal core_iram_noa2a2a23_x1_5_sig    : bit;
+signal core_iram_noa2a2a23_x1_6_sig    : bit;
+signal core_iram_noa2a2a23_x1_sig      : bit;
+signal core_iram_noa2a2a2a24_x1_10_sig : bit;
+signal core_iram_noa2a2a2a24_x1_2_sig  : bit;
+signal core_iram_noa2a2a2a24_x1_3_sig  : bit;
+signal core_iram_noa2a2a2a24_x1_4_sig  : bit;
+signal core_iram_noa2a2a2a24_x1_5_sig  : bit;
+signal core_iram_noa2a2a2a24_x1_6_sig  : bit;
+signal core_iram_noa2a2a2a24_x1_7_sig  : bit;
+signal core_iram_noa2a2a2a24_x1_8_sig  : bit;
+signal core_iram_noa2a2a2a24_x1_9_sig  : bit;
+signal core_iram_noa2a2a2a24_x1_sig    : bit;
+signal core_iram_noa2ao222_x1_sig      : bit;
+signal core_iram_not_a                 : bit_vector(3 downto 3);
+signal core_iram_not_ab_data_idx_13    : bit_vector(2 downto 2);
+signal core_iram_not_ab_data_idx_15    : bit_vector(1 downto 1);
+signal core_iram_not_alu_out           : bit_vector(3 downto 0);
+signal core_iram_not_aux0              : bit;
+signal core_iram_not_aux10             : bit;
+signal core_iram_not_aux101            : bit;
+signal core_iram_not_aux104            : bit;
+signal core_iram_not_aux105            : bit;
+signal core_iram_not_aux106            : bit;
+signal core_iram_not_aux107            : bit;
+signal core_iram_not_aux108            : bit;
+signal core_iram_not_aux109            : bit;
+signal core_iram_not_aux11             : bit;
+signal core_iram_not_aux110            : bit;
+signal core_iram_not_aux111            : bit;
+signal core_iram_not_aux112            : bit;
+signal core_iram_not_aux113            : bit;
+signal core_iram_not_aux114            : bit;
+signal core_iram_not_aux115            : bit;
+signal core_iram_not_aux116            : bit;
+signal core_iram_not_aux117            : bit;
+signal core_iram_not_aux118            : bit;
+signal core_iram_not_aux12             : bit;
+signal core_iram_not_aux120            : bit;
+signal core_iram_not_aux124            : bit;
+signal core_iram_not_aux125            : bit;
+signal core_iram_not_aux126            : bit;
+signal core_iram_not_aux128            : bit;
+signal core_iram_not_aux13             : bit;
+signal core_iram_not_aux134            : bit;
+signal core_iram_not_aux138            : bit;
+signal core_iram_not_aux140            : bit;
+signal core_iram_not_aux142            : bit;
+signal core_iram_not_aux144            : bit;
+signal core_iram_not_aux145            : bit;
+signal core_iram_not_aux147            : bit;
+signal core_iram_not_aux148            : bit;
+signal core_iram_not_aux149            : bit;
+signal core_iram_not_aux15             : bit;
+signal core_iram_not_aux150            : bit;
+signal core_iram_not_aux151            : bit;
+signal core_iram_not_aux152            : bit;
+signal core_iram_not_aux20             : bit;
+signal core_iram_not_aux21             : bit;
+signal core_iram_not_aux22             : bit;
+signal core_iram_not_aux23             : bit;
+signal core_iram_not_aux24             : bit;
+signal core_iram_not_aux29             : bit;
+signal core_iram_not_aux30             : bit;
+signal core_iram_not_aux31             : bit;
+signal core_iram_not_aux32             : bit;
+signal core_iram_not_aux33             : bit;
+signal core_iram_not_aux36             : bit;
+signal core_iram_not_aux38             : bit;
+signal core_iram_not_aux41             : bit;
+signal core_iram_not_aux42             : bit;
+signal core_iram_not_aux43             : bit;
+signal core_iram_not_aux44             : bit;
+signal core_iram_not_aux45             : bit;
+signal core_iram_not_aux46             : bit;
+signal core_iram_not_aux47             : bit;
+signal core_iram_not_aux49             : bit;
+signal core_iram_not_aux50             : bit;
+signal core_iram_not_aux51             : bit;
+signal core_iram_not_aux52             : bit;
+signal core_iram_not_aux53             : bit;
+signal core_iram_not_aux54             : bit;
+signal core_iram_not_aux55             : bit;
+signal core_iram_not_aux56             : bit;
+signal core_iram_not_aux58             : bit;
+signal core_iram_not_aux59             : bit;
+signal core_iram_not_aux60             : bit;
+signal core_iram_not_aux61             : bit;
+signal core_iram_not_aux63             : bit;
+signal core_iram_not_aux64             : bit;
+signal core_iram_not_aux69             : bit;
+signal core_iram_not_aux7              : bit;
+signal core_iram_not_aux70             : bit;
+signal core_iram_not_aux71             : bit;
+signal core_iram_not_aux72             : bit;
+signal core_iram_not_aux74             : bit;
+signal core_iram_not_aux75             : bit;
+signal core_iram_not_aux76             : bit;
+signal core_iram_not_aux77             : bit;
+signal core_iram_not_aux78             : bit;
+signal core_iram_not_aux79             : bit;
+signal core_iram_not_aux8              : bit;
+signal core_iram_not_aux80             : bit;
+signal core_iram_not_aux81             : bit;
+signal core_iram_not_aux82             : bit;
+signal core_iram_not_aux83             : bit;
+signal core_iram_not_aux84             : bit;
+signal core_iram_not_aux85             : bit;
+signal core_iram_not_aux86             : bit;
+signal core_iram_not_aux88             : bit;
+signal core_iram_not_aux89             : bit;
+signal core_iram_not_aux9              : bit;
+signal core_iram_not_aux90             : bit;
+signal core_iram_not_aux91             : bit;
+signal core_iram_not_aux92             : bit;
+signal core_iram_not_aux95             : bit;
+signal core_iram_not_aux99             : bit;
+signal core_iram_not_b                 : bit_vector(3 downto 0);
+signal core_iram_not_i                 : bit_vector(2 downto 1);
+signal core_iram_o2_x2_2_sig           : bit;
+signal core_iram_o2_x2_3_sig           : bit;
+signal core_iram_o2_x2_4_sig           : bit;
+signal core_iram_o2_x2_sig             : bit;
+signal core_iram_o3_x2_2_sig           : bit;
+signal core_iram_o3_x2_3_sig           : bit;
+signal core_iram_o3_x2_4_sig           : bit;
+signal core_iram_o3_x2_5_sig           : bit;
+signal core_iram_o3_x2_6_sig           : bit;
+signal core_iram_o3_x2_sig             : bit;
+signal core_iram_o4_x2_sig             : bit;
+signal core_iram_oa2a2a23_x2_sig       : bit;
+signal core_iram_oa2ao222_x2_2_sig     : bit;
+signal core_iram_oa2ao222_x2_sig       : bit;
+signal core_iram_on12_x1_sig           : bit;
+signal core_r                          : bit_vector(3 downto 0);
+signal core_ra                         : bit_vector(3 downto 0);
+signal core_rb                         : bit_vector(3 downto 0);
+signal core_s                          : bit_vector(3 downto 0);
+signal core_saccu                      : bit_vector(3 downto 0);
+signal cout_to_pads                    : bit;
+signal d_from_pads                     : bit_vector(3 downto 0);
+signal f3_to_pads                      : bit;
+signal i_from_pads                     : bit_vector(8 downto 0);
+signal ng_to_pads                      : bit;
+signal noe_from_pads                   : bit;
+signal np_to_pads                      : bit;
+signal ovr_to_pads                     : bit;
+signal p_a0_padreal_pad                : bit;
+signal p_a1_padreal_pad                : bit;
+signal p_a2_padreal_pad                : bit;
+signal p_a3_padreal_pad                : bit;
+signal p_b0_padreal_pad                : bit;
+signal p_b1_padreal_pad                : bit;
+signal p_b2_padreal_pad                : bit;
+signal p_b3_padreal_pad                : bit;
+signal p_cin_padreal_pad               : bit;
+signal p_ck_padreal_pad                : bit;
+signal p_cout_padreal_pad              : bit;
+signal p_d0_padreal_pad                : bit;
+signal p_d1_padreal_pad                : bit;
+signal p_d2_padreal_pad                : bit;
+signal p_d3_padreal_pad                : bit;
+signal p_f3_padreal_pad                : bit;
+signal p_i0_padreal_pad                : bit;
+signal p_i1_padreal_pad                : bit;
+signal p_i2_padreal_pad                : bit;
+signal p_i3_padreal_pad                : bit;
+signal p_i4_padreal_pad                : bit;
+signal p_i5_padreal_pad                : bit;
+signal p_i6_padreal_pad                : bit;
+signal p_i7_padreal_pad                : bit;
+signal p_i8_padreal_pad                : bit;
+signal p_ng_padreal_pad                : bit;
+signal p_noe_padreal_pad               : bit;
+signal p_np_padreal_pad                : bit;
+signal p_ovr_padreal_pad               : bit;
+signal p_q0_padreal_pad                : bit;
+signal p_q3_padreal_pad                : bit;
+signal p_r0_padreal_pad                : bit;
+signal p_r3_padreal_pad                : bit;
+signal p_vddeck0_padreal_pad           : bit;
+signal p_vddeck1_padreal_pad           : bit;
+signal p_vddick0_padreal_pad           : bit;
+signal p_vsseck0_padreal_pad           : bit;
+signal p_vsseck1_padreal_pad           : bit;
+signal p_vssick0_padreal_pad           : bit;
+signal p_y0_padreal_pad                : bit;
+signal p_y1_padreal_pad                : bit;
+signal p_y2_padreal_pad                : bit;
+signal p_y3_padreal_pad                : bit;
+signal p_zero_padreal_pad              : bit;
+signal q0_from_pads                    : bit;
+signal q0_to_pads                      : bit;
+signal q3_from_pads                    : bit;
+signal q3_to_pads                      : bit;
+signal r0_from_pads                    : bit;
+signal r0_to_pads                      : bit;
+signal r3_from_pads                    : bit;
+signal r3_to_pads                      : bit;
+signal shift_l                         : bit;
+signal shift_r                         : bit;
+signal y_oe                            : bit;
+signal y_to_pads                       : bit_vector(3 downto 0);
+signal zero_to_pads                    : bit;
+
+begin
+
+p_vddick0 : pvddick_px
+   port map ( 
+      ck    => ck_ring,
+      cko   => ckc,
+      vdde  => vdde,
+      vddi  => vddi,
+      vsse  => vsse,
+      vssi  => vssi
+   );
+
+p_b1 : pi_px
+   port map ( 
+      ck    => ck_ring,
+      pad   => b(1),
+      t     => b_from_pads(1),
+      vdde  => vdde,
+      vddi  => vddi,
+      vsse  => vsse,
+      vssi  => vssi
+   );
+
+p_a1 : pi_px
+   port map ( 
+      ck    => ck_ring,
+      pad   => a(1),
+      t     => a_from_pads(1),
+      vdde  => vdde,
+      vddi  => vddi,
+      vsse  => vsse,
+      vssi  => vssi
+   );
+
+p_i0 : pi_px
+   port map ( 
+      ck    => ck_ring,
+      pad   => i(0),
+      t     => i_from_pads(0),
+      vdde  => vdde,
+      vddi  => vddi,
+      vsse  => vsse,
+      vssi  => vssi
+   );
+
+p_ng : po_px
+   port map ( 
+      ck    => ck_ring,
+      i     => ng_to_pads,
+      pad   => ng,
+      vdde  => vdde,
+      vddi  => vddi,
+      vsse  => vsse,
+      vssi  => vssi
+   );
+
+p_noe : pi_px
+   port map ( 
+      ck    => ck_ring,
+      pad   => noe,
+      t     => noe_from_pads,
+      vdde  => vdde,
+      vddi  => vddi,
+      vsse  => vsse,
+      vssi  => vssi
+   );
+
+p_b2 : pi_px
+   port map ( 
+      ck    => ck_ring,
+      pad   => b(2),
+      t     => b_from_pads(2),
+      vdde  => vdde,
+      vddi  => vddi,
+      vsse  => vsse,
+      vssi  => vssi
+   );
+
+p_i4 : pi_px
+   port map ( 
+      ck    => ck_ring,
+      pad   => i(4),
+      t     => i_from_pads(4),
+      vdde  => vdde,
+      vddi  => vddi,
+      vsse  => vsse,
+      vssi  => vssi
+   );
+
+p_vddeck0 : pvddeck_px
+   port map ( 
+      ck    => ck_ring,
+      cko   => ckc,
+      vdde  => vdde,
+      vddi  => vddi,
+      vsse  => vsse,
+      vssi  => vssi
+   );
+
+p_y1 : pot_px
+   port map ( 
+      b     => y_oe,
+      ck    => ck_ring,
+      i     => y_to_pads(1),
+      pad   => y(1),
+      vdde  => vdde,
+      vddi  => vddi,
+      vsse  => vsse,
+      vssi  => vssi
+   );
+
+p_i8 : pi_px
+   port map ( 
+      ck    => ck_ring,
+      pad   => i(8),
+      t     => i_from_pads(8),
+      vdde  => vdde,
+      vddi  => vddi,
+      vsse  => vsse,
+      vssi  => vssi
+   );
+
+core : coeur
+   port map ( 
+      a_from_pads    => a_from_pads(3)&a_from_pads(2)&a_from_pads(1)&a_from_pads(0),
+      b_from_pads    => b_from_pads(3)&b_from_pads(2)&b_from_pads(1)&b_from_pads(0),
+      cin_from_pads  => cin_from_pads,
+      ck             => ckc,
+      cout_to_pads   => cout_to_pads,
+      d_from_pads    => d_from_pads(3)&d_from_pads(2)&d_from_pads(1)&d_from_pads(0),
+      f3_to_pads     => f3_to_pads,
+      i_from_pads    => i_from_pads(8)&i_from_pads(7)&i_from_pads(6)&i_from_pads(5)&i_from_pads(4)&i_from_pads(3)&i_from_pads(2)&i_from_pads(1)&i_from_pads(0),
+      ng_to_pads     => ng_to_pads,
+      noe_from_pads  => noe_from_pads,
+      np_to_pads     => np_to_pads,
+      ovr_to_pads    => ovr_to_pads,
+      q0_from_pads   => q0_from_pads,
+      q0_to_pads     => q0_to_pads,
+      q3_from_pads   => q3_from_pads,
+      q3_to_pads     => q3_to_pads,
+      r0_from_pads   => r0_from_pads,
+      r0_to_pads     => r0_to_pads,
+      r3_from_pads   => r3_from_pads,
+      r3_to_pads     => r3_to_pads,
+      shift_l        => shift_l,
+      shift_r        => shift_r,
+      vdd            => vddi,
+      vss            => vssi,
+      y_oe           => y_oe,
+      y_to_pads      => y_to_pads(3)&y_to_pads(2)&y_to_pads(1)&y_to_pads(0),
+      zero_to_pads   => zero_to_pads
+   );
+
+p_i5 : pi_px
+   port map ( 
+      ck    => ck_ring,
+      pad   => i(5),
+      t     => i_from_pads(5),
+      vdde  => vdde,
+      vddi  => vddi,
+      vsse  => vsse,
+      vssi  => vssi
+   );
+
+p_y2 : pot_px
+   port map ( 
+      b     => y_oe,
+      ck    => ck_ring,
+      i     => y_to_pads(2),
+      pad   => y(2),
+      vdde  => vdde,
+      vddi  => vddi,
+      vsse  => vsse,
+      vssi  => vssi
+   );
+
+p_a2 : pi_px
+   port map ( 
+      ck    => ck_ring,
+      pad   => a(2),
+      t     => a_from_pads(2),
+      vdde  => vdde,
+      vddi  => vddi,
+      vsse  => vsse,
+      vssi  => vssi
+   );
+
+p_d3 : pi_px
+   port map ( 
+      ck    => ck_ring,
+      pad   => d(3),
+      t     => d_from_pads(3),
+      vdde  => vdde,
+      vddi  => vddi,
+      vsse  => vsse,
+      vssi  => vssi
+   );
+
+p_i1 : pi_px
+   port map ( 
+      ck    => ck_ring,
+      pad   => i(1),
+      t     => i_from_pads(1),
+      vdde  => vdde,
+      vddi  => vddi,
+      vsse  => vsse,
+      vssi  => vssi
+   );
+
+p_vsseck0 : pvsseck_px
+   port map ( 
+      ck    => ck_ring,
+      cko   => ckc,
+      vdde  => vdde,
+      vddi  => vddi,
+      vsse  => vsse,
+      vssi  => vssi
+   );
+
+p_cout : po_px
+   port map ( 
+      ck    => ck_ring,
+      i     => cout_to_pads,
+      pad   => cout,
+      vdde  => vdde,
+      vddi  => vddi,
+      vsse  => vsse,
+      vssi  => vssi
+   );
+
+p_i6 : pi_px
+   port map ( 
+      ck    => ck_ring,
+      pad   => i(6),
+      t     => i_from_pads(6),
+      vdde  => vdde,
+      vddi  => vddi,
+      vsse  => vsse,
+      vssi  => vssi
+   );
+
+p_cin : pi_px
+   port map ( 
+      ck    => ck_ring,
+      pad   => cin,
+      t     => cin_from_pads,
+      vdde  => vdde,
+      vddi  => vddi,
+      vsse  => vsse,
+      vssi  => vssi
+   );
+
+p_d2 : pi_px
+   port map ( 
+      ck    => ck_ring,
+      pad   => d(2),
+      t     => d_from_pads(2),
+      vdde  => vdde,
+      vddi  => vddi,
+      vsse  => vsse,
+      vssi  => vssi
+   );
+
+p_a3 : pi_px
+   port map ( 
+      ck    => ck_ring,
+      pad   => a(3),
+      t     => a_from_pads(3),
+      vdde  => vdde,
+      vddi  => vddi,
+      vsse  => vsse,
+      vssi  => vssi
+   );
+
+p_b3 : pi_px
+   port map ( 
+      ck    => ck_ring,
+      pad   => b(3),
+      t     => b_from_pads(3),
+      vdde  => vdde,
+      vddi  => vddi,
+      vsse  => vsse,
+      vssi  => vssi
+   );
+
+p_vssick0 : pvssick_px
+   port map ( 
+      ck    => ck_ring,
+      cko   => ckc,
+      vdde  => vdde,
+      vddi  => vddi,
+      vsse  => vsse,
+      vssi  => vssi
+   );
+
+p_q0 : piot_px
+   port map ( 
+      b     => shift_r,
+      ck    => ck_ring,
+      i     => q0_to_pads,
+      pad   => q0,
+      t     => q0_from_pads,
+      vdde  => vdde,
+      vddi  => vddi,
+      vsse  => vsse,
+      vssi  => vssi
+   );
+
+p_r0 : piot_px
+   port map ( 
+      b     => shift_r,
+      ck    => ck_ring,
+      i     => r0_to_pads,
+      pad   => r0,
+      t     => r0_from_pads,
+      vdde  => vdde,
+      vddi  => vddi,
+      vsse  => vsse,
+      vssi  => vssi
+   );
+
+p_vddeck1 : pvddeck_px
+   port map ( 
+      ck    => ck_ring,
+      cko   => ckc,
+      vdde  => vdde,
+      vddi  => vddi,
+      vsse  => vsse,
+      vssi  => vssi
+   );
+
+p_i3 : pi_px
+   port map ( 
+      ck    => ck_ring,
+      pad   => i(3),
+      t     => i_from_pads(3),
+      vdde  => vdde,
+      vddi  => vddi,
+      vsse  => vsse,
+      vssi  => vssi
+   );
+
+p_zero : po_px
+   port map ( 
+      ck    => ck_ring,
+      i     => zero_to_pads,
+      pad   => zero,
+      vdde  => vdde,
+      vddi  => vddi,
+      vsse  => vsse,
+      vssi  => vssi
+   );
+
+p_f3 : po_px
+   port map ( 
+      ck    => ck_ring,
+      i     => f3_to_pads,
+      pad   => f3,
+      vdde  => vdde,
+      vddi  => vddi,
+      vsse  => vsse,
+      vssi  => vssi
+   );
+
+p_i2 : pi_px
+   port map ( 
+      ck    => ck_ring,
+      pad   => i(2),
+      t     => i_from_pads(2),
+      vdde  => vdde,
+      vddi  => vddi,
+      vsse  => vsse,
+      vssi  => vssi
+   );
+
+p_ck : pck_px
+   port map ( 
+      ck    => ck_ring,
+      pad   => clk,
+      vdde  => vdde,
+      vddi  => vddi,
+      vsse  => vsse,
+      vssi  => vssi
+   );
+
+p_np : po_px
+   port map ( 
+      ck    => ck_ring,
+      i     => np_to_pads,
+      pad   => np,
+      vdde  => vdde,
+      vddi  => vddi,
+      vsse  => vsse,
+      vssi  => vssi
+   );
+
+p_y3 : pot_px
+   port map ( 
+      b     => y_oe,
+      ck    => ck_ring,
+      i     => y_to_pads(3),
+      pad   => y(3),
+      vdde  => vdde,
+      vddi  => vddi,
+      vsse  => vsse,
+      vssi  => vssi
+   );
+
+p_q3 : piot_px
+   port map ( 
+      b     => shift_l,
+      ck    => ck_ring,
+      i     => q3_to_pads,
+      pad   => q3,
+      t     => q3_from_pads,
+      vdde  => vdde,
+      vddi  => vddi,
+      vsse  => vsse,
+      vssi  => vssi
+   );
+
+p_r3 : piot_px
+   port map ( 
+      b     => shift_l,
+      ck    => ck_ring,
+      i     => r3_to_pads,
+      pad   => r3,
+      t     => r3_from_pads,
+      vdde  => vdde,
+      vddi  => vddi,
+      vsse  => vsse,
+      vssi  => vssi
+   );
+
+p_vsseck1 : pvsseck_px
+   port map ( 
+      ck    => ck_ring,
+      cko   => ckc,
+      vdde  => vdde,
+      vddi  => vddi,
+      vsse  => vsse,
+      vssi  => vssi
+   );
+
+p_a0 : pi_px
+   port map ( 
+      ck    => ck_ring,
+      pad   => a(0),
+      t     => a_from_pads(0),
+      vdde  => vdde,
+      vddi  => vddi,
+      vsse  => vsse,
+      vssi  => vssi
+   );
+
+p_b0 : pi_px
+   port map ( 
+      ck    => ck_ring,
+      pad   => b(0),
+      t     => b_from_pads(0),
+      vdde  => vdde,
+      vddi  => vddi,
+      vsse  => vsse,
+      vssi  => vssi
+   );
+
+p_d0 : pi_px
+   port map ( 
+      ck    => ck_ring,
+      pad   => d(0),
+      t     => d_from_pads(0),
+      vdde  => vdde,
+      vddi  => vddi,
+      vsse  => vsse,
+      vssi  => vssi
+   );
+
+p_d1 : pi_px
+   port map ( 
+      ck    => ck_ring,
+      pad   => d(1),
+      t     => d_from_pads(1),
+      vdde  => vdde,
+      vddi  => vddi,
+      vsse  => vsse,
+      vssi  => vssi
+   );
+
+p_i7 : pi_px
+   port map ( 
+      ck    => ck_ring,
+      pad   => i(7),
+      t     => i_from_pads(7),
+      vdde  => vdde,
+      vddi  => vddi,
+      vsse  => vsse,
+      vssi  => vssi
+   );
+
+p_ovr : po_px
+   port map ( 
+      ck    => ck_ring,
+      i     => ovr_to_pads,
+      pad   => ovr,
+      vdde  => vdde,
+      vddi  => vddi,
+      vsse  => vsse,
+      vssi  => vssi
+   );
+
+p_y0 : pot_px
+   port map ( 
+      b     => y_oe,
+      ck    => ck_ring,
+      i     => y_to_pads(0),
+      pad   => y(0),
+      vdde  => vdde,
+      vddi  => vddi,
+      vsse  => vsse,
+      vssi  => vssi
+   );
+
+end structural;

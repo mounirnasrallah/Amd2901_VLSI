@@ -1,0 +1,126 @@
+N:a2_x2_sig:-1:324 ps
+N:accu 0:-1:528 ps
+N:accu 1:-1:530 ps
+N:accu 2:-1:530 ps
+N:accu 3:-1:537 ps
+N:accu_reg_0:-1:528 ps
+N:accu_reg_1:-1:530 ps
+N:accu_reg_2:-1:530 ps
+N:accu_reg_3:-1:537 ps
+N:alu_out 0:-1:0 ps
+N:alu_out 1:-1:0 ps
+N:alu_out 2:-1:0 ps
+N:alu_out 3:-1:0 ps
+N:cke:-1:0 ps
+N:i 0:-1:0 ps
+N:i 1:-1:0 ps
+N:i 2:-1:0 ps
+N:inv_x2_2_sig:-1:232 ps
+N:inv_x2_sig:-1:232 ps
+N:na2_x1_2_sig:-1:702 ps
+N:na2_x1_3_sig:-1:702 ps
+N:na2_x1_4_sig:-1:709 ps
+N:na2_x1_sig:-1:701 ps
+N:na3_x1_2_sig:-1:1366 ps
+N:na3_x1_3_sig:-1:1373 ps
+N:na3_x1_4_sig:-1:1373 ps
+N:na3_x1_sig:-1:1366 ps
+N:nao22_x1_2_sig:-1:463 ps
+N:nao22_x1_sig:-1:463 ps
+N:no2_x1_2_sig:-1:209 ps
+N:no2_x1_3_sig:-1:209 ps
+N:no2_x1_4_sig:-1:209 ps
+N:no2_x1_5_sig:-1:293 ps
+N:no2_x1_sig:-1:209 ps
+N:not_accu_reg_1:-1:646 ps
+N:not_accu_reg_2:-1:646 ps
+N:not_accu_reg_3:-1:653 ps
+N:not_aux0:-1:116 ps
+N:not_aux1:-1:116 ps
+N:not_aux2:-1:116 ps
+N:not_aux3:-1:116 ps
+N:not_aux4:-1:116 ps
+N:not_i_1:-1:116 ps
+N:not_i_2:-1:116 ps
+N:o2_x2_2_sig:-1:474 ps
+N:o2_x2_sig:-1:474 ps
+N:o3_x2_2_sig:-1:673 ps
+N:o3_x2_3_sig:-1:673 ps
+N:o3_x2_4_sig:-1:673 ps
+N:o3_x2_sig:-1:673 ps
+N:oa22_x2_2_sig:-1:1118 ps
+N:oa22_x2_3_sig:-1:1125 ps
+N:oa22_x2_4_sig:-1:1125 ps
+N:oa22_x2_sig:-1:1118 ps
+N:q0_from:-1:0 ps
+N:q0_to:-1:1119 ps
+N:q3_from:-1:0 ps
+N:q3_to:-1:1128 ps
+B:q0_to_ins:-1:1119 ps
+B:no2_x1_5_ins:-1:293 ps
+B:q3_to_ins:-1:1128 ps
+B:a2_x2_ins:-1:324 ps
+B:accu_3:-1:937 ps
+B:accu_2:-1:930 ps
+B:accu_1:-1:930 ps
+B:accu_0:-1:928 ps
+B:accu_reg_3:-1:1404 ps
+B:na3_x1_4_ins:-1:1373 ps
+B:o3_x2_4_ins:-1:673 ps
+B:no2_x1_4_ins:-1:209 ps
+B:na2_x1_4_ins:-1:709 ps
+B:oa22_x2_4_ins:-1:1125 ps
+B:nao22_x1_2_ins:-1:463 ps
+B:inv_x2_2_ins:-1:232 ps
+B:accu_reg_2:-1:1404 ps
+B:na3_x1_3_ins:32:1373 ps
+B:o3_x2_3_ins:-1:673 ps
+B:no2_x1_3_ins:-1:209 ps
+B:na2_x1_3_ins:-1:702 ps
+B:oa22_x2_3_ins:32:1125 ps
+B:o2_x2_2_ins:-1:474 ps
+B:accu_reg_1:-1:1398 ps
+B:na3_x1_2_ins:-1:1366 ps
+B:o3_x2_2_ins:-1:673 ps
+B:no2_x1_2_ins:-1:209 ps
+B:na2_x1_2_ins:-1:702 ps
+B:oa22_x2_2_ins:-1:1118 ps
+B:o2_x2_ins:-1:474 ps
+B:accu_reg_0:-1:1398 ps
+B:na3_x1_ins:-1:1366 ps
+B:o3_x2_ins:-1:673 ps
+B:no2_x1_ins:-1:209 ps
+B:na2_x1_ins:-1:701 ps
+B:oa22_x2_ins:-1:1118 ps
+B:nao22_x1_ins:-1:463 ps
+B:inv_x2_ins:-1:232 ps
+B:not_i_1:-1:116 ps
+B:not_i_2:-1:116 ps
+B:not_accu_reg_1:-1:646 ps
+B:not_aux3_ins:-1:465 ps
+B:not_aux0_ins:-1:712 ps
+B:not_aux4_ins:-1:358 ps
+B:not_accu_reg_2:-1:646 ps
+B:not_aux1_ins:-1:964 ps
+B:not_accu_reg_3:32:653 ps
+B:not_aux2_ins:-1:964 ps
+C:q3_to:-1:1128 ps
+C:q3_from:-1:0 ps
+C:q0_to:-1:1119 ps
+C:q0_from:-1:0 ps
+C:i 0:-1:0 ps
+C:i 1:-1:0 ps
+C:i 2:-1:0 ps
+C:cke:-1:0 ps
+C:alu_out 0:-1:0 ps
+C:alu_out 1:-1:0 ps
+C:alu_out 2:-1:0 ps
+C:alu_out 3:-1:0 ps
+C:accu 0:-1:0 ps on input; 528 ps on output
+C:accu 1:-1:0 ps on input; 530 ps on output
+C:accu 2:-1:0 ps on input; 530 ps on output
+C:accu 3:-1:0 ps on input; 537 ps on output
+P:accu_reg_3:accu_reg_3:not_accu_reg_3:32:0 ps
+P:not_accu_reg_3:not_accu_reg_3:oa22_x2_3_ins:32:0 ps
+P:oa22_x2_3_ins:oa22_x2_3_sig:na3_x1_3_ins:32:0 ps
+P:na3_x1_3_ins:na3_x1_3_sig:accu_reg_2:32:0 ps

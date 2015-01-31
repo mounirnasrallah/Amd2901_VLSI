@@ -1,0 +1,127 @@
+N:a3_x2_sig:-1:785 ps
+N:accu 0:-1:0 ps
+N:accu 1:-1:0 ps
+N:accu 2:-1:0 ps
+N:accu 3:-1:0 ps
+N:aux2:-1:358 ps
+N:aux3:-1:379 ps
+N:aux5:-1:291 ps
+N:d 0:-1:0 ps
+N:d 1:-1:0 ps
+N:d 2:-1:0 ps
+N:d 3:-1:0 ps
+N:i 0:-1:0 ps
+N:i 1:-1:0 ps
+N:i 2:-1:0 ps
+N:inv_x2_2_sig:-1:232 ps
+N:inv_x2_3_sig:-1:474 ps
+N:inv_x2_4_sig:-1:116 ps
+N:inv_x2_sig:-1:232 ps
+N:na2_x1_2_sig:-1:288 ps
+N:na2_x1_3_sig:-1:310 ps
+N:na2_x1_4_sig:-1:288 ps
+N:na2_x1_5_sig:-1:530 ps
+N:na2_x1_sig:-1:288 ps
+N:na3_x1_2_sig:-1:567 ps
+N:na3_x1_3_sig:-1:450 ps
+N:na3_x1_4_sig:-1:575 ps
+N:na3_x1_5_sig:-1:450 ps
+N:na3_x1_sig:-1:575 ps
+N:not_accu_2:-1:116 ps
+N:not_aux0:-1:116 ps
+N:not_aux1:-1:116 ps
+N:not_aux4:-1:116 ps
+N:not_i_0:-1:138 ps
+N:not_i_1:-1:116 ps
+N:not_i_2:-1:221 ps
+N:o2_x2_sig:-1:474 ps
+N:on12_x1_2_sig:-1:302 ps
+N:on12_x1_3_sig:-1:418 ps
+N:on12_x1_4_sig:-1:418 ps
+N:on12_x1_sig:-1:310 ps
+N:r 0:-1:814 ps
+N:r 1:-1:1246 ps
+N:r 2:-1:814 ps
+N:r 3:-1:774 ps
+N:ra 0:-1:0 ps
+N:ra 1:-1:0 ps
+N:ra 2:-1:0 ps
+N:ra 3:-1:0 ps
+N:rb 0:-1:0 ps
+N:rb 1:-1:0 ps
+N:rb 2:-1:0 ps
+N:rb 3:-1:0 ps
+N:s 0:-1:854 ps
+N:s 1:-1:722 ps
+N:s 2:-1:847 ps
+N:s 3:-1:795 ps
+B:r_3:-1:774 ps
+B:inv_x2_4_ins:-1:116 ps
+B:inv_x2_3_ins:-1:474 ps
+B:r_2:-1:814 ps
+B:inv_x2_2_ins:-1:232 ps
+B:r_1:32:1246 ps
+B:a3_x2_ins:32:785 ps
+B:r_0:-1:814 ps
+B:inv_x2_ins:-1:232 ps
+B:s_3:-1:795 ps
+B:on12_x1_4_ins:-1:418 ps
+B:na3_x1_5_ins:-1:450 ps
+B:na2_x1_5_ins:-1:530 ps
+B:s_2:-1:847 ps
+B:na2_x1_4_ins:-1:288 ps
+B:o2_x2_ins:-1:474 ps
+B:na3_x1_4_ins:-1:575 ps
+B:na2_x1_3_ins:-1:310 ps
+B:s_1:-1:722 ps
+B:na2_x1_2_ins:-1:288 ps
+B:on12_x1_3_ins:-1:418 ps
+B:na3_x1_3_ins:-1:450 ps
+B:s_0:-1:854 ps
+B:na2_x1_ins:-1:288 ps
+B:na3_x1_2_ins:-1:567 ps
+B:on12_x1_2_ins:-1:302 ps
+B:na3_x1_ins:-1:575 ps
+B:on12_x1_ins:-1:310 ps
+B:aux2_ins:-1:345 ps
+B:aux3_ins:32:310 ps
+B:aux5_ins:-1:209 ps
+B:not_i_0:32:116 ps
+B:not_i_1:-1:116 ps
+B:not_i_2:-1:116 ps
+B:not_accu_2:-1:116 ps
+B:not_aux0_ins:-1:434 ps
+B:not_aux1_ins:-1:465 ps
+B:not_aux4_ins:-1:552 ps
+C:s 0:-1:854 ps
+C:s 1:-1:722 ps
+C:s 2:-1:847 ps
+C:s 3:-1:795 ps
+C:rb 0:-1:0 ps
+C:rb 1:-1:0 ps
+C:rb 2:-1:0 ps
+C:rb 3:-1:0 ps
+C:ra 0:-1:0 ps
+C:ra 1:-1:0 ps
+C:ra 2:-1:0 ps
+C:ra 3:-1:0 ps
+C:r 0:-1:814 ps
+C:r 1:32:1246 ps
+C:r 2:-1:814 ps
+C:r 3:-1:774 ps
+C:i 0:32:0 ps
+C:i 1:-1:0 ps
+C:i 2:-1:0 ps
+C:d 0:-1:0 ps
+C:d 1:-1:0 ps
+C:d 2:-1:0 ps
+C:d 3:-1:0 ps
+C:accu 0:-1:0 ps
+C:accu 1:-1:0 ps
+C:accu 2:-1:0 ps
+C:accu 3:-1:0 ps
+P:i_0:i_0:not_i_0:32:552 ps
+P:not_i_0:not_i_0:aux3_ins:32:552 ps
+P:aux3_ins:aux3:a3_x2_ins:32:552 ps
+P:a3_x2_ins:a3_x2_sig:r_1:32:552 ps
+P:r_1:r 1:r_1:32:552 ps
